@@ -1,0 +1,28 @@
+---
+title: "01 Sequences and Alignments"
+author: "Stephan Schiffels"
+date: "2022-08-18"
+output: html_document
+---
+
+Next generation sequencing data consists of millions relatively short sequences. In case of ancient DNA, these are typically around only 50 basepairs (bp) long. 
+
+Here is a real example of such sequences, obtained from a bone sample of an early medieval burial from Hinxton, Cambridgeshire, UK (Individual 12884A from \cite{Schiffels_2016})
+
+
+
+
+
+
+
+In comparison, the human genome, of around 3 billion bp, is huge. 
+
+To make sense of the sequencing data of a sample, all these millions of short seuqences 
+
+
+
+```{text}
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+
+
+```
