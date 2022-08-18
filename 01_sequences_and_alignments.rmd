@@ -5,9 +5,79 @@ date: "2022-08-18"
 output: html_document
 ---
 
-Next generation sequencing data consists of millions relatively short sequences. In case of ancient DNA, these are typically around only 50 basepairs (bp) long. 
+# Short sequences
 
-Here is a real example of such sequences, obtained from a bone sample of an early medieval burial from Hinxton, Cambridgeshire, UK (Individual 12884A from \cite{Schiffels_2016})
+DNA is a macromolecule that holds the genetic information of living things. When describing DNA, we use letters A, C, T and G to describe the four fundamental building blocks, or bases, which encode that genetic information: Adenosine, Cythosine, Thymine and Guanine. Real DNA sequences from living tissue are extremely variable in length. For example, in human cells, chromosomal DNA sequences in our cell nucleus are typically around 100 million bases long, whereas mitochondrial DNA, from outside the nucleus or only around 16000 bases long.
+
+When DNA gets extracted from tissue and prepared for Next-Generation-Sequencing, it gets broken down to short fragments, often between 50 and 200 bases long. The same breaking down happens with ancient DNA in human remains in a natural process called post-mortem DNA degradation. 
+
+Because next-generation sequencing is good at analysing short sequences, but hundreds of millions of them in parallel, it is perfect for sequencing ancient DNA.
+
+To get an idea of how such short DNA fragments look when they come off the sequencing machine, here is an example of 10 short DNA fragments, extracted from the bones of a person that died in the early medieval period in England:
+
+```{bash echo=FALSE, comment=''}
+samtools view data/Sample.bam | cut -f10 | head
+```
+
+To generate such data, a lot of bio-molecular steps have to be conducted in the wet-lab, including extraction of DNA from the (degraded) cells of the original tissue, adding molecular indices to each DNA fragment and amplifying the resulting sequencing library to high enough DNA concentration. Ultimately, a small sample (often still hundreds of millions of fragments) of the resulting library gets sequenced.
+
+# Alignments
+
+In comparison to each of these short sequences, the human genome is very large. The human genome consists of two basic elements: The nuclear genome is around 3 billion basepairs long and describes the long DNA sequences that make up our 22 autosomal chromosomes, and the X and Y chromosome. The mitochondrial genome is much shorter, only around 16000 basepairs long, and it describes the DNA sequences that make up the mitochondria, our cell's energy factories. There are typically many mitochondria per cell, while there is only one nucleus per cell, which often makes mitochondrial DNA (short mtDNA) much more abundant in tissue and bone samples of living people, and the same is true for ancient DNA from (pre-)historic human remains.
+
+To make sense of the sequencing data, every single read needs to be mapped onto the human genome. This mapping- or alignment-process in principle equals a linear search along the genome, where a given sequence "best" matches the reference sequence. Indexing and other bioinformatic optimisations developed in recent decades have made this a highly optimised process. Modern alignment tools, such as bwa [](), are able to map hundreds of millions of short DNA fragments to the human genome within hours.
+
+A typical way to visualise such alignments is shown here:
+```{bash}
+samtools tview data/Sample.bam -d t --reference data/hg19_MT.fasta
+```
+
+Here, the top sequence is the reference sequence of the alignment (in this case the human mitochondrial reference genome), with the coordinates denoted as numbers on top. The next line (beginning with `.G`) gives the consensus sequence, so the majority call of the aligned sequences, with a dot simply denoting "same as reference". Below are the short sequences that have been aligned to the reference. Most letters of the aligned sequences are the same as the reference (shown as dot or comma), but there are a few differences, shown in letters. 
+
+The structure may become clearer if we view this without the reference genome:
+```{bash}
+samtools tview data/Sample.bam -d t
+```
+
+Here, we see all the letters of the aligned sequences, and the consensus sequence spelled out explicitly, while the reference information is missing (encoded with the many `N`s). You can recognise here also the 10 DNA fragments shown at the top of the chapter.
+
+---
+
+**Note:**
+
+You will have noticed that there are two ways to display bases. Capital letters (or dots) denote bases on the so-called forward strand of the reference genome, whereas lowercase letters (or commas) denote bases on the reverse strand of the reference genome. This is due to the fact that the human genome is double-stranded, with each A on one strand paired with a T on the opposing strand and vice versa, and each C is paired with a G and vice versa. When viewing DNA fragments in a BAM file, as we did with `samtools view` at the top, all fragments are already shown in their positive strand-orientation, so that we can easily inspect their alignment. In reality, the sequencing machine may have produced the reverse strand of a molecule, which the alignment software will find out by trying both strand orientations when searching for a match along the reference. In cases of lowercase letters or dots, the original sequence that came off the sequencing machine is the reverse complement of the shown sequence, which is obtained by i) reversing the letters, and ii) interchanging A and T and interchanging C and G.
+
+---
+
+
+---
+
+**Exercise 1.1:**
+Manually align the following Sequencing Reads to the given Reference genome. Attention, there may be single basepair mismatches:
+
+```{text eval=FALSE}
+Reference_Genome: 
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+
+Sequencing_Reads:     
+GTTTACACTGGTGCACTGGACTACCCTG
+ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+TGGTGCACTGGACTACCCTGGGTACACT
+GACTACCCTGGGTACACTGACTACGA
+GGTACACTGACTACGACTACGACTACGTT
+```
+
+**Exercise 1.2:**
+
+Open a terminal (such as the one included in RStudio or RStudio Cloud), and try out `samtools tview` yourself by going to the terminal, below, and running `samtools tview data/Sample.bam` or `samtools tview data/Sample.bam --reference data/HG19_MT.fasta`. Use your cursors to move left and right, space or Ctrl-L to make bigger jumps to the right, or Ctrl-H for bigger jumps to the left. Type `?` to get a quick help, and `q` to quit.
+
+---
+
+
+# Calling SNPs
+
+
+# Working with BAM files
 
 
 
@@ -15,9 +85,6 @@ Here is a real example of such sequences, obtained from a bone sample of an earl
 
 
 
-In comparison, the human genome, of around 3 billion bp, is huge. 
-
-To make sense of the sequencing data of a sample, all these millions of short seuqences 
 
 
 
@@ -26,3 +93,22 @@ AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCC
 
 
 ```
+
+
+
+# Solutions
+
+Exercise 1.1:
+```{text}
+                        Mismatch A -> G               Mismatch G->C
+                             |                             |
+                             |                             |
+                             V                             V
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+                 GTTTACACTGGTGCACTGGACTACCCTG
+                     ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+                         TGGTGCACTGGACTACCCTGGGTACACT
+                                   GACTACCCTGGGTACACTGACTACCA
+                                             GGTACACTGACTACCACTACGACTACGTT
+```
+
