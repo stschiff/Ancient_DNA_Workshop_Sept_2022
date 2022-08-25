@@ -76,6 +76,14 @@ Open a terminal (such as the one included in RStudio or RStudio Cloud), and try 
 
 # Calling SNPs
 
+In the end we are not so interested in short reads, not even in the alignment, but in a reconstruction of an individual's _personal genome_. In the vast majority of genomic sites, a person's genome will exactly match the reference genome, which is why reconstruction-by-alignment works in the first place. Around 1 in 1000 genomic positions, however, a person's genome will _differ_ from the reference genome. Sometimes, such differences consist of short insertions or deletions, which we'll ignore here for now, but in most cases, these differences are made up of so-called _single nucleotide polymorphisms_, or SNPs.
+
+SNPs can be detected in alignments, by simply observing positions at which all or many of the aligned reads support a different base than the one seen in the reference genome. Here is an example:
+
+
+
+The whole point of aligning all those short sequences to a reference genome is to detect _differences_ between the 
+
 
 # Working with BAM files
 
