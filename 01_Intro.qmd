@@ -1,0 +1,33 @@
+---
+title: "01_Ancient_DNA_and_Alignments"
+format: revealjs
+---
+
+# Introduction
+
+## What is Archaeogenetics?
+
+- Was ist Archäo- oder Paläogenetik? Genetische Analyse organischer archäologischer Fundreste
+- (z.B. Knochen, Zahn, Zahnstein, Geweih, Haar, Samen, Holz, Pollen, Erde, etc.)
+
+![](images/adna_sources_1.png)
+![](images/adna_sources_2.png)
+
+## Why archaeogenetics?
+
+- Wozu machen wir das? Warum sind prähistorische genetische Daten wichtig?
+- Weil die genetische Variabilität der Vergangenheit nicht aus der heutigen Variabilität abgeleitet werden kann
+
+::: {.r-stack}
+![](images/phylotree_schematic_empty.png){.fragment width="800" .fade-in-then-out}
+
+![](images/phylotree_schematic_skulls.png){.fragment width="800"}
+:::
+
+## Wo kommt die DNA her?
+
+![](images/bone.png){width=200}
+![](images/cell.png){width=600}
+![](images/pathogens.png){width=200}
+![](images/environ_dna.png){width=200}
+
