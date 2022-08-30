@@ -26,8 +26,28 @@ format: revealjs
 
 ## Wo kommt die DNA her?
 
-![](images/bone.png){width=200}
-![](images/cell.png){width=600}
-![](images/pathogens.png){width=200}
-![](images/environ_dna.png){width=200}
+::::: {.columns}
+
+:::: {.column width="40%"}
+::: {.fragment fragment-index=1}
+* Human DNA (Mitochondrial DNA, Nuclear DNA)
+:::
+
+::: {.fragment fragment-index=2}
+* Pathogen DNA (Bacteria, Viruses, Protists)
+:::
+
+::: {.fragment fragment-index=3}
+* Environmental DNA (Plants, Funghi, Bacteria, Viruses, Animals)
+:::
+::::
+
+:::: {.column width="60%"}
+![](images/cell.png){.fragment fragment-index=1}
+
+![](images/pathogens.png){.fragment with=200 fragment-index=2}
+![](images/environ_dna.png){.fragment width=300 fragment-index=3}
+::::
+
+:::::
 
