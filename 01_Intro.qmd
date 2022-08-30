@@ -1,5 +1,7 @@
 ---
-title: "01_Ancient_DNA_and_Alignments"
+title: "Part 1 - From bones to sequences"
+subtitle: "Workshop at the University of Siegen and Bonn, Sept 2022"
+author: Stephan Schiffels, MPI for Evolutionary Anthropology, Leipzig
 format: revealjs
 ---
 
@@ -7,24 +9,24 @@ format: revealjs
 
 ## What is Archaeogenetics?
 
-- Was ist Archäo- oder Paläogenetik? Genetische Analyse organischer archäologischer Fundreste
-- (z.B. Knochen, Zahn, Zahnstein, Geweih, Haar, Samen, Holz, Pollen, Erde, etc.)
+- Genetic Analysis of prehistoric organic remains
+- Examples: bones, teeth, dental calculus, antler, hair, seed, wood, pollen, soil, coprolites
 
-![](images/adna_sources_1.png)
-![](images/adna_sources_2.png)
+![](images/part_01/adna_sources_1.png)
+![](images/part_01/adna_sources_2.png)
 
 ## Why archaeogenetics?
 
-- Wozu machen wir das? Warum sind prähistorische genetische Daten wichtig?
-- Weil die genetische Variabilität der Vergangenheit nicht aus der heutigen Variabilität abgeleitet werden kann
+- Why are we doing this? Why are prehistoric genetic data important?
+- Because genetic variability in the past can not be derived unambiguously from genetic variability in the presence.
 
 ::: {.r-stack}
-![](images/phylotree_schematic_empty.png){.fragment width="800" .fade-in-then-out}
+![](images/part_01/phylotree_schematic_empty.png){.fragment width="800" .fade-in-then-out}
 
-![](images/phylotree_schematic_skulls.png){.fragment width="800"}
+![](images/part_01/phylotree_schematic_skulls.png){.fragment width="800"}
 :::
 
-## Wo kommt die DNA her?
+## Sources of ancient DNA
 
 ::::: {.columns}
 
@@ -43,11 +45,22 @@ format: revealjs
 ::::
 
 :::: {.column width="60%"}
-![](images/cell.png){.fragment fragment-index=1}
+![](images/part_01/cell.png){.fragment fragment-index=1}
 
-![](images/pathogens.png){.fragment with=200 fragment-index=2}
-![](images/environ_dna.png){.fragment width=300 fragment-index=3}
+![](images/part_01/pathogens.png){.fragment with=200 fragment-index=2}
+![](images/part_01/environ_dna.png){.fragment width=300 fragment-index=3}
 ::::
 
 :::::
 
+## What happens in an ancient DNA laboratory?
+
+![](images/part_01/adna_lab_schematic.png){fig-align="center"}
+
+## From evolutionary to family history {.smaller}
+
+![](images/part_01/popgen_scales_novembre2011.png){fig-align="center" height=520}
+
+::: aside
+Novembre and Ramachandran 2011, Annu. Rev. Genomics Hum. Genet. 2011.
+:::
