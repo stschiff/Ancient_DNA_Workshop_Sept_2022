@@ -3,55 +3,56 @@ title: "Part 1 - From bones to sequences"
 subtitle: "Workshop at the University of Siegen and Bonn, Sept 2022"
 author: Stephan Schiffels, MPI for Evolutionary Anthropology, Leipzig
 format: revealjs
+engine: knitr
 ---
 
 # Introduction
 
 ## What is Archaeogenetics?
 
-- Genetic Analysis of prehistoric organic remains
-- Examples: bones, teeth, dental calculus, antler, hair, seed, wood, pollen, soil, coprolites
+-   Genetic Analysis of prehistoric organic remains
+-   Examples: bones, teeth, dental calculus, antler, hair, seed, wood, pollen, soil, coprolites
 
-![](images/part_01/adna_sources_1.png)
-![](images/part_01/adna_sources_2.png)
+![](images/part_01/adna_sources_1.png) ![](images/part_01/adna_sources_2.png)
 
-## Why archaeogenetics?
+## Why archaeogenetics? {.smaller}
 
-- Why are we doing this? Why are prehistoric genetic data important?
-- Because genetic variability in the past can not be derived unambiguously from genetic variability in the presence.
+-   Why are we doing this? Why are prehistoric genetic data important?
+-   Because genetic variability in the past can not be derived unambiguously from genetic variability in the presence.
 
-::: {.r-stack}
-![](images/part_01/phylotree_schematic_empty.png){.fragment width="800" .fade-in-then-out}
+::: r-stack
+![](images/part_01/phylotree_schematic_empty.png){.fragment .fade-in-then-out width="800"}
 
 ![](images/part_01/phylotree_schematic_skulls.png){.fragment width="800"}
 :::
 
+::: aside
+Images by Wolfgang Haak
+:::
+
 ## Sources of ancient DNA
 
-::::: {.columns}
-
-:::: {.column width="40%"}
-::: {.fragment fragment-index=1}
-* Human DNA (Mitochondrial DNA, Nuclear DNA)
+::: columns
+::: {.column width="40%"}
+::: {.fragment fragment-index="1"}
+-   Human DNA (Mitochondrial DNA, Nuclear DNA)
 :::
 
-::: {.fragment fragment-index=2}
-* Pathogen DNA (Bacteria, Viruses, Protists)
+::: {.fragment fragment-index="2"}
+-   Pathogen DNA (Bacteria, Viruses, Protists)
 :::
 
-::: {.fragment fragment-index=3}
-* Environmental DNA (Plants, Funghi, Bacteria, Viruses, Animals)
+::: {.fragment fragment-index="3"}
+-   Environmental DNA (Plants, Funghi, Bacteria, Viruses, Animals)
 :::
-::::
+:::
 
-:::: {.column width="60%"}
-![](images/part_01/cell.png){.fragment fragment-index=1}
+::: {.column width="60%"}
+![](images/part_01/cell.png){.fragment fragment-index="1"}
 
-![](images/part_01/pathogens.png){.fragment with=200 fragment-index=2}
-![](images/part_01/environ_dna.png){.fragment width=300 fragment-index=3}
-::::
-
-:::::
+![](images/part_01/pathogens.png){.fragment with="200" fragment-index="2"} ![](images/part_01/environ_dna.png){.fragment width="300" fragment-index="3"}
+:::
+:::
 
 ## What happens in an ancient DNA laboratory?
 
@@ -59,8 +60,91 @@ format: revealjs
 
 ## From evolutionary to family history {.smaller}
 
-![](images/part_01/popgen_scales_novembre2011.png){fig-align="center" height=520}
+![](images/part_01/popgen_scales_novembre2011.png){fig-align="center" height="520"}
 
 ::: aside
 Novembre and Ramachandran 2011, Annu. Rev. Genomics Hum. Genet. 2011.
 :::
+
+## DNA degradation {.smaller}
+
+::: columns
+::: {.column width="60%"}
+-   Ancient DNA is **short** (50-100 bp)
+-   Ancient DNA has **chemically changed** after death (C-\>U-\>T changes at the ends)
+-   Ancient DNA is partly **single-stranded** (strand breaks)
+
+![](images/part_01/strand_breaks.png)
+:::
+
+::: {.column width="40%"}
+![](images/part_01/adna_size_dist.png)
+
+![](images/part_01/damage_plot.png)
+
+::: aside
+Images: Stoneking and Krause 2011, Nat Rev Gen; Wolfgang Haak
+:::
+:::
+:::
+
+## Sequencing Data {.smaller}
+
+This is how sequencing reads look like on a computer:
+
+```{bash}
+#| echo: true
+samtools view data/Sample.bam | cut -f10 | head
+```
+
+* Problem: Sequencing reads are **short**, the human genome is **long**.
+
+::: callout-note
+Note that the `samtools view` command is used here and introduced later.
+:::
+
+::: callout-tip
+If you're familiar with the command line, you can try out the command (`samtools view ...`) yourself. The data is available from this repository.
+:::
+
+## Solution: Alignments {.smaller}
+
+* Every short fragment gets _mapped_ onto the human genome
+* Fast mapping algorithms use sophisticated indexing of the human genome to quickly find a matching position
+
+:::: r-stack
+
+::: {.fragment .fade-in-then-out}
+A typical way to visualise such alignments is shown here:
+```{bash}
+samtools tview data/Sample.bam -d t --reference data/hg19_MT.fasta
+```
+:::
+
+::: fragment
+The structure may become clearer if we view this without the reference genome:
+```{bash}
+samtools tview data/Sample.bam -d t
+```
+:::
+
+::::
+
+::: aside
+Top line: Reference genome
+
+Second line: Consensus sequence
+
+Other lines: fragments
+:::
+
+## Test
+
+::: callout-warning
+hello
+:::
+
+# Interlude - RStudio Cloud
+
+## RStudio Cloud
+
