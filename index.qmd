@@ -20,6 +20,11 @@ In order to join our "classroom" workspace, you need to follow [this link](). Th
 - In the workshop space, you should now see "Join Space?" -> Click "YES"
 - In the top menu, click on "Projects"
 - You should see a project named "Ancient_DNA_Workshop_Sept_2022". Click on "Start" right next to it.
+- You should now see something like this:
+
+![](website_images/rstudio-cloud-fresh-login.png)
+
+
 
 ## Local Install
 TODO
@@ -30,7 +35,7 @@ TODO
 
 | Time          | Activity                                              |
 |:--------------|:------------------------------------------------------|
-| 13:30 - 15:00 | [Introduction](materials/01_Intro.html)                                |
+| 13:30 - 15:00 | [Introduction](presentations/01_Intro.html)                                |
 | 15:00 - 15:30 | *Coffee break*                                        |
 | 16:00 - 19:00 | [TBA]()                           |
 

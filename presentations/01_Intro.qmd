@@ -83,7 +83,7 @@ Novembre and Ramachandran 2011, Annu. Rev. Genomics Hum. Genet. 2011.
 ![](images/part_01/damage_plot.png)
 
 ::: aside
-Images: Stoneking and Krause 2011, Nat Rev Gen; Wolfgang Haak
+Images: Stoneking and Krause 2011, Nat Rev Gen; Christina Warinner
 :::
 :::
 :::
@@ -122,7 +122,7 @@ samtools tview data/Sample.bam -d t --reference data/hg19_MT.fasta
 :::
 
 ::: fragment
-The structure may become clearer if we view this without the reference genome:
+Or without the reference genome:
 ```{bash}
 samtools tview data/Sample.bam -d t
 ```
@@ -146,13 +146,56 @@ Other lines: fragments
 * RStudio-Cloud is a browser-based version
 ![](images/part_01/rstudio-cloud.png)
 
-## `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in" .smaller}
+## `r fontawesome::fa("laptop-code", "white")` Your Turn (Exercise 1.1) {background-color="#447099" transition="slide-in" .smaller}
 
-- Go to our workshop's website: XXX
-- Click on the access link to join our workshop space on RStudio Cloud
-- Click on "Sign up" to create a free account, _or_, if you already have an account, simply log in
-- In the workshop space, you should now see "Join Space?" -> Click "YES"
-- In the top menu, click on "Projects"
-- You should see a project named "Ancient_DNA_Workshop_Sept_2022". Click on "Start" right next to it.
+- Make sure you have access to our RStudio project, as described on the workshop webpage (`https://stschiff.github.io/Ancient_DNA_Workshop_Sept_2022/`)
+- Open the file `exercise_1_1_alignment.txt` under `presentations`. 
+- Edit the file to visually align the sequencing Reads to the given Reference genome:
 
-![](images/part_01/rstudio-cloud-fresh-login.png) {width="200"}
+```{text eval=FALSE}
+Reference_Genome: 
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+
+Sequencing_Reads:     
+GTTTACACTGGTGCACTGGACTACCCTG
+ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+TGGTGCACTGGACTACCCTGGGTACACT
+GACTACCCTGGGTACACTGACTACGA
+GGTACACTGACTACGACTACGACTACGTT
+```
+
+::: callout-tip
+There may be single basepair mismatches. Find them!
+:::
+
+## Solution 1.1
+
+```
+                        Mismatch A -> G               Mismatch G->C
+                             |                             |
+                             |                             |
+                             V                             V
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+                 GTTTACACTGGTGCACTGGACTACCCTG
+                     ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+                         TGGTGCACTGGACTACCCTGGGTACACT
+                                   GACTACCCTGGGTACACTGACTACCA
+                                             GGTACACTGACTACCACTACGACTACGTT
+```
+
+
+
+## `r fontawesome::fa("laptop-code", "white")` Your Turn (Exercise 1.2) {background-color="#447099" transition="slide-in" .smaller}
+
+- Click into the terminal in RStudio
+- Change into the `presentations` directory by typing `cd presentations`, followed by `<Enter>`
+- Run `samtools tview data/Sample.bam`
+- Also try `samtools tview data/Sample.bam --reference data/HG19_MT.fasta`
+
+::: callout-tip
+- Use your cursors to move left and right
+- Use space or Ctrl-L to make bigger jumps to the right
+- Use or Ctrl-H for bigger jumps to the left.
+- Type `?` to get a quick help
+- Type `q` to quit.
+:::
