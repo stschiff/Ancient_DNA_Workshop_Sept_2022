@@ -93,7 +93,13 @@ Images: Stoneking and Krause 2011, Nat Rev Gen; Wolfgang Haak
 This is how sequencing reads look like on a computer:
 
 ```{bash}
+conda env list
+```
+
+
+```{bash engine.opts='-l'}
 #| echo: true
+conda activate r-reticulate
 samtools view data/Sample.bam | cut -f10 | head
 ```
 
