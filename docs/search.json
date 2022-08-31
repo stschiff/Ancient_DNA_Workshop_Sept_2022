@@ -25,7 +25,7 @@
     "href": "index.html#rstudio-cloud",
     "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
     "section": "RStudio-Cloud",
-    "text": "RStudio-Cloud\nOur interactive exercises are done in RStudio-Cloud.\nIn order to join our “classroom” workspace, you need to follow this link. Then follow these steps: - Click on “Sign up” to create a free account, or, if you already have an account, simply log in - In the workshop space, you should now see “Join Space?” -> Click “YES” - In the top menu, click on “Projects” - You should see a project named “Ancient_DNA_Workshop_Sept_2022”. Click on “Start” right next to it."
+    "text": "RStudio-Cloud\nOur interactive exercises are done in RStudio-Cloud.\nIn order to join our “classroom” workspace, you need to follow this link. Then follow these steps:\n\nClick on “Sign up” to create a free account, or, if you already have an account, simply log in\nIn the workshop space, you should now see “Join Space?” -> Click “YES”\nIn the top menu, click on “Projects”\nYou should see a project named “Ancient_DNA_Workshop_Sept_2022”. Click on “Start” right next to it."
   },
   {
     "objectID": "index.html#local-install",
