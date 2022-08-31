@@ -1,0 +1,8 @@
+---
+title: "About"
+---
+
+This website was created by [Stephan Schiffels](https://www.eva.mpg.de/archaeogenetics/staff/stephan-schiffels), Group Leader for Population Genetics at the Max Planck Institute for Evolutionary Anthropology in Leipzig, German.
+
+It contains lectures and exercises on Ancient DNA data analysis from a workshop conducted at the University of Siegen, in collaboration with the University of Bonn, on September 6-7, 2022.
+

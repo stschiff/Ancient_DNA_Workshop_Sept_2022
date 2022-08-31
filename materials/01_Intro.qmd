@@ -93,13 +93,7 @@ Images: Stoneking and Krause 2011, Nat Rev Gen; Wolfgang Haak
 This is how sequencing reads look like on a computer:
 
 ```{bash}
-conda env list
-```
-
-
-```{bash engine.opts='-l'}
 #| echo: true
-conda activate r-reticulate
 samtools view data/Sample.bam | cut -f10 | head
 ```
 
@@ -144,13 +138,21 @@ Second line: Consensus sequence
 Other lines: fragments
 :::
 
-## Test
-
-::: callout-warning
-hello
-:::
-
 # Interlude - RStudio Cloud
 
-## RStudio Cloud
+## RStudio Cloud {.smaller}
 
+* RStudio is an open source and free platform for data science
+* RStudio-Cloud is a browser-based version
+![](images/part_01/rstudio-cloud.png)
+
+## `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in" .smaller}
+
+- Go to our workshop's website: XXX
+- Click on the access link to join our workshop space on RStudio Cloud
+- Click on "Sign up" to create a free account, _or_, if you already have an account, simply log in
+- In the workshop space, you should now see "Join Space?" -> Click "YES"
+- In the top menu, click on "Projects"
+- You should see a project named "Ancient_DNA_Workshop_Sept_2022". Click on "Start" right next to it.
+
+![](images/part_01/rstudio-cloud-fresh-login.png) {width="200"}

@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "It contains lectures and exercises on Ancient DNA data analysis from a workshop conducted at the University of Siegen, in collaboration with the University of Bonn, on September 6-7, 2022."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
+    "section": "",
+    "text": "Welcome to the Website for the “Ancient DNA Data Analysis” workshop."
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
+    "section": "Learning objectives",
+    "text": "Learning objectives"
+  },
+  {
+    "objectID": "index.html#rstudio-cloud",
+    "href": "index.html#rstudio-cloud",
+    "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
+    "section": "RStudio-Cloud",
+    "text": "RStudio-Cloud\nOur interactive exercises are done in RStudio-Cloud.\nIn order to join our “classroom” workspace, you need to follow this link. Then follow these steps: - Click on “Sign up” to create a free account, or, if you already have an account, simply log in - In the workshop space, you should now see “Join Space?” -> Click “YES” - In the top menu, click on “Projects” - You should see a project named “Ancient_DNA_Workshop_Sept_2022”. Click on “Start” right next to it."
+  },
+  {
+    "objectID": "index.html#local-install",
+    "href": "index.html#local-install",
+    "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
+    "section": "Local Install",
+    "text": "Local Install\nTODO"
+  },
+  {
+    "objectID": "index.html#day-1-tue-sept-6",
+    "href": "index.html#day-1-tue-sept-6",
+    "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
+    "section": "Day 1, Tue, Sept 6",
+    "text": "Day 1, Tue, Sept 6\n\n\n\nTime\nActivity\n\n\n\n\n13:30 - 15:00\nIntroduction\n\n\n15:00 - 15:30\nCoffee break\n\n\n16:00 - 19:00\nTBA"
+  },
+  {
+    "objectID": "index.html#day-2-wed-sept-7",
+    "href": "index.html#day-2-wed-sept-7",
+    "title": "Ancient DNA Data Analysis - Workshop Uni Siegen 2022",
+    "section": "Day 2, Wed, Sept 7",
+    "text": "Day 2, Wed, Sept 7\n\n\n\nTime\nActivity\n\n\n\n\n08:30 - 9:30\nTBA\n\n\n9:30 - 10:00\nCoffee break\n\n\n10:00 - 12:00\nTBA\n\n\n12:00 - 13:00\nLunch break\n\n\n13:00 - 15:00\nTBA"
+  },
+  {
+    "objectID": "materials/01_Intro.html#what-is-archaeogenetics",
+    "href": "materials/01_Intro.html#what-is-archaeogenetics",
+    "title": "Part 1 - From bones to sequences",
+    "section": "What is Archaeogenetics?",
+    "text": "What is Archaeogenetics?\n\nGenetic Analysis of prehistoric organic remains\nExamples: bones, teeth, dental calculus, antler, hair, seed, wood, pollen, soil, coprolites"
+  },
+  {
+    "objectID": "materials/01_Intro.html#why-archaeogenetics",
+    "href": "materials/01_Intro.html#why-archaeogenetics",
+    "title": "Part 1 - From bones to sequences",
+    "section": "Why archaeogenetics?",
+    "text": "Why archaeogenetics?\n\nWhy are we doing this? Why are prehistoric genetic data important?\nBecause genetic variability in the past can not be derived unambiguously from genetic variability in the presence.\n\n\n\n\n\n\n\nImages by Wolfgang Haak"
+  },
+  {
+    "objectID": "materials/01_Intro.html#sources-of-ancient-dna",
+    "href": "materials/01_Intro.html#sources-of-ancient-dna",
+    "title": "Part 1 - From bones to sequences",
+    "section": "Sources of ancient DNA",
+    "text": "Sources of ancient DNA\n\n\n\n\nHuman DNA (Mitochondrial DNA, Nuclear DNA)\n\n\n\n\nPathogen DNA (Bacteria, Viruses, Protists)\n\n\n\n\nEnvironmental DNA (Plants, Funghi, Bacteria, Viruses, Animals)"
+  },
+  {
+    "objectID": "materials/01_Intro.html#what-happens-in-an-ancient-dna-laboratory",
+    "href": "materials/01_Intro.html#what-happens-in-an-ancient-dna-laboratory",
+    "title": "Part 1 - From bones to sequences",
+    "section": "What happens in an ancient DNA laboratory?",
+    "text": "What happens in an ancient DNA laboratory?"
+  },
+  {
+    "objectID": "materials/01_Intro.html#from-evolutionary-to-family-history",
+    "href": "materials/01_Intro.html#from-evolutionary-to-family-history",
+    "title": "Part 1 - From bones to sequences",
+    "section": "From evolutionary to family history",
+    "text": "From evolutionary to family history\n\n\n\n\n\n\n\nNovembre and Ramachandran 2011, Annu. Rev. Genomics Hum. Genet. 2011."
+  },
+  {
+    "objectID": "materials/01_Intro.html#dna-degradation",
+    "href": "materials/01_Intro.html#dna-degradation",
+    "title": "Part 1 - From bones to sequences",
+    "section": "DNA degradation",
+    "text": "DNA degradation\n\n\n\nAncient DNA is short (50-100 bp)\nAncient DNA has chemically changed after death (C->U->T changes at the ends)\nAncient DNA is partly single-stranded (strand breaks)\n\n\n\n\n\n\n\n\n\nImages: Stoneking and Krause 2011, Nat Rev Gen; Wolfgang Haak"
+  },
+  {
+    "objectID": "materials/01_Intro.html#sequencing-data",
+    "href": "materials/01_Intro.html#sequencing-data",
+    "title": "Part 1 - From bones to sequences",
+    "section": "Sequencing Data",
+    "text": "Sequencing Data\nThis is how sequencing reads look like on a computer:\n\nsamtools view data/Sample.bam | cut -f10 | head\n\nCGCCCTATTAACCACTCACGGGAGCTCTCCATGCATTTA\nCCTATTAACCACTCACGGGAGCTCTCCATGCATTTGGTATT\nTATTAACCACTCACGGGAGCTCTCCATGCATTTGGTATTTTCGTCTGGGGAGTATGCACGCGATAGCATTGCGAGA\nTATTAACCACTCACGGGAGCTCTCCATACATTTGGTATTTTCGTCTGGGGGGTATGCACGCGATAGCATTGCGAGA\nTCACGGGAGCTCTCCATGCATTTGGTATTTTCGTCTGGGGGGTATGCACGCGATAGCATTGCGAGACGCTGAAGCC\nTCACGGGAGCTCTCCATGCATTTGGTATTTTCGTCTGGGGGGTATGCACGCGATAGCATTGCGAGACGCTGAAGCC\nGAGCTTTTCATGTATTTGGTATTTTCGTCTGGGGGGTATGCACGCGATAGCATTGCGAGATGTTGGA\nTCATGCATTTGGTATTTTCGTCTGGGGGGTATGCACGCGATAGCATTGCGAGACGCT\nATTTGGTATTTTTGTTTGGGGGGTATGCACGCGATAGCATTGCGAG\nCATCTGGGGGGTATGCACACGATAGCATTGCGAGACGCTGGAA\n\n\n\nProblem: Sequencing reads are short, the human genome is long.\n\n\n\n\n\n\n\nNote\n\n\nNote that the samtools view command is used here and introduced later.\n\n\n\n\n\n\n\n\n\nTip\n\n\nIf you’re familiar with the command line, you can try out the command (samtools view ...) yourself. The data is available from this repository."
+  },
+  {
+    "objectID": "materials/01_Intro.html#solution-alignments",
+    "href": "materials/01_Intro.html#solution-alignments",
+    "title": "Part 1 - From bones to sequences",
+    "section": "Solution: Alignments",
+    "text": "Solution: Alignments\n\nEvery short fragment gets mapped onto the human genome\nFast mapping algorithms use sophisticated indexing of the human genome to quickly find a matching position\n\n\n\nA typical way to visualise such alignments is shown here:\n\n\n1         11        21        31        41        51        61        71        \nGATCACAGGTCTATCACCCTATTAACCACTCACGGGAGCTCTCCATGCATTTGGTATTTTCGTCTGGGGGGTATGCACGC\n              .G................................................................\n              ,g,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,a       ,a,,,,,,,,,,,,,,,,a,\n                 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,   ,,,,,,,a,a,,,,,,,,,\n                   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,a,,,,,,,,,,\n                   ,,,,,,,,,,,,,,,,,,,,,,,,,,,a,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n                             ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n                             ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n                                   .....T.T....T................................\n                                          T.....................................\n                                                ............T..T................\n                                                                        ,,,,,,,,\n                                                                         ,,,,,,,\n                                                                           .....\n\n\n\n\nThe structure may become clearer if we view this without the reference genome:\n\n\n1         11        21        31        41        51        61        71        \nNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\n              CGCCCTATTAACCACTCACGGGAGCTYTYCATRYATTTRGTATTTTYRTYTGGGRRRTATGCACRC\n              cgccctattaaccactcacgggagctctccatgcattta       catctggggggtatgcacac\n                 cctattaaccactcacgggagctctccatgcatttggtatt   gtctgggagatatgcacgc\n                   tattaaccactcacgggagctctccatgcatttggtattttcgtctggggagtatgcacgc\n                   tattaaccactcacgggagctctccatacatttggtattttcgtctggggggtatgcacgc\n                             tcacgggagctctccatgcatttggtattttcgtctggggggtatgcacgc\n                             tcacgggagctctccatgcatttggtattttcgtctggggggtatgcacgc\n                                   GAGCTTTTCATGTATTTGGTATTTTCGTCTGGGGGGTATGCACGC\n                                          TCATGCATTTGGTATTTTCGTCTGGGGGGTATGCACGC\n                                                ATTTGGTATTTTTGTTTGGGGGGTATGCACGC\n                                                                        atgcacgc\n                                                                         tgcacgc\n                                                                           CACGC\n\n\n\n\n\n\nTop line: Reference genome\nSecond line: Consensus sequence\nOther lines: fragments"
+  },
+  {
+    "objectID": "materials/01_Intro.html#rstudio-cloud",
+    "href": "materials/01_Intro.html#rstudio-cloud",
+    "title": "Part 1 - From bones to sequences",
+    "section": "RStudio Cloud",
+    "text": "RStudio Cloud\n\nRStudio is an open source and free platform for data science\nRStudio-Cloud is a browser-based version"
+  },
+  {
+    "objectID": "materials/01_Intro.html#our-turn",
+    "href": "materials/01_Intro.html#our-turn",
+    "title": "Part 1 - From bones to sequences",
+    "section": " Our Turn",
+    "text": "Our Turn\n\nGo to our workshop’s website: XXX\nClick on the access link to join our workshop space on RStudio Cloud\nClick on “Sign up” to create a free account, or, if you already have an account, simply log in\nIn the workshop space, you should now see “Join Space?” -> Click “YES”\nIn the top menu, click on “Projects”\nYou should see a project named “Ancient_DNA_Workshop_Sept_2022”. Click on “Start” right next to it.\n\n {width=“200”}"
+  }
+]

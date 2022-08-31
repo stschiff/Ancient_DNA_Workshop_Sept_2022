@@ -1,0 +1,49 @@
+Welcome to the Website for the "Ancient DNA Data Analysis" workshop.
+
+# Overview
+
+## Learning objectives
+
+# Technical prerequisites
+
+Our interactive exercises require a mix of tools, such as [R](), [samtools](), [Eigensoft]() and [Poseidon]().
+
+If you are an attendee of this workshop, you will have access to a [prepared RStudio-Cloud environment](#rstudio-cloud) which has all that you need ready to go. The only thing you will need is a webbrowser and an RStudio-Cloud account, see below. It is also possible to install things locally (see [How to run this workshop locally](#local-install))
+
+## RStudio-Cloud
+
+Our interactive exercises are done in [RStudio-Cloud](https://cloud.rstudio.com). 
+
+In order to join our "classroom" workspace, you need to follow [this link](). Then follow these steps:
+- Click on "Sign up" to create a free account, _or_, if you already have an account, simply log in
+- In the workshop space, you should now see "Join Space?" -> Click "YES"
+- In the top menu, click on "Projects"
+- You should see a project named "Ancient_DNA_Workshop_Sept_2022". Click on "Start" right next to it.
+
+## Local Install
+TODO
+
+# Schedule
+
+## Day 1, Tue, Sept 6
+
+| Time          | Activity                                              |
+|:--------------|:------------------------------------------------------|
+| 13:30 - 15:00 | [Introduction](materials/01_Intro.html)                                |
+| 15:00 - 15:30 | *Coffee break*                                        |
+| 16:00 - 19:00 | [TBA]()                           |
+
+## Day 2, Wed, Sept 7
+
+| Time          | Activity                         |
+|:--------------|:---------------------------------|
+| 08:30 - 9:30 | [TBA]()                     |
+| 9:30 - 10:00 | *Coffee break*                   |
+| 10:00 - 12:00 | [TBA]()                          |
+| 12:00 - 13:00 | *Lunch break*                    |
+| 13:00 - 15:00 | [TBA]()  |
+
+
+# Instructor
+
+[Stephan Schiffels](https://www.eva.mpg.de/archaeogenetics/staff/stephan-schiffels) is a group leader at the Max Planck Institute for Evolutionary Anthropology in Leipzig, Germany. He has originally studied physics and obtained his PhD in 2011. He worked as a Postdoc at the Wellcome Trust Sanger Institute in Hinxton, UK and since 2015 as a group leader at the Max Planck Institute. His research interests range from theoretical population genetics, statistical and bioinformatic method development, to large-scale archaeogenetic studies to investigate the human past.
