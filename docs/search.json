@@ -200,7 +200,7 @@
     "href": "presentations/01_Intro.html#your-turn-exercise-1.1",
     "title": "Part 1 - From bones to sequences",
     "section": " Your Turn (Exercise 1.1)",
-    "text": "Your Turn (Exercise 1.1)\n\nMake sure you have access to our RStudio project, as described on the workshop webpage (https://stschiff.github.io/Ancient_DNA_Workshop_Sept_2022/)\nOpen the file exercise_1_1_alignment.txt under presentations.\nEdit the file to visually align the sequencing Reads to the given Reference genome:\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nThere may be single basepair mismatches. Find them!"
+    "text": "Your Turn (Exercise 1.1)\n\nMake sure you have access to our RStudio project, as described on the workshop webpage (https://stschiff.github.io/Ancient_DNA_Workshop_Sept_2022/)\nOpen the file exercise_1_1_alignment.txt under presentations.\nEdit the file to visually align the sequencing Reads to the given Reference genome:\nReference_Genome: AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT\nSequencing_Reads:\nGTTTACACTGGTGCACTGGACTACCCTG ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC TGGTGCACTGGACTACCCTGGGTACACT GACTACCCTGGGTACACTGACTACGA GGTACACTGACTACGACTACGACTACGTT\n\n\n\n\n\n\n\nTip\n\n\nThere may be single basepair mismatches. Find them!"
   },
   {
     "objectID": "presentations/01_Intro.html#your-turn-exercise-1.2",
@@ -215,5 +215,26 @@
     "title": "Part 1 - From bones to sequences",
     "section": "Solution 1.1",
     "text": "Solution 1.1\n                        Mismatch A -> G               Mismatch G->C\n                             |                             |\n                             |                             |\n                             V                             V\nAACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT\n                 GTTTACACTGGTGCACTGGACTACCCTG\n                     ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC\n                         TGGTGCACTGGACTACCCTGGGTACACT\n                                   GACTACCCTGGGTACACTGACTACCA\n                                             GGTACACTGACTACCACTACGACTACGTT"
+  },
+  {
+    "objectID": "presentations/01_Intro.html#interlude---rstudio-cloud",
+    "href": "presentations/01_Intro.html#interlude---rstudio-cloud",
+    "title": "Part 1 - From bones to sequences",
+    "section": "Interlude - RStudio Cloud",
+    "text": "Interlude - RStudio Cloud\n\nRStudio is an open source and free platform for data science\nRStudio-Cloud is a browser-based version"
+  },
+  {
+    "objectID": "presentations/01_Intro.html#next-slide",
+    "href": "presentations/01_Intro.html#next-slide",
+    "title": "Part 1 - From bones to sequences",
+    "section": "Next Slide",
+    "text": "Next Slide\n...ACCCAAACTTTGCGCGTATCGCTCAGGTTTAAACACCACACCGGGTTTACATCACTCG...\n\n...ACCCAAACTTTGCGCATTTCGCTCTGCTTTAAACACCACACCGGGTTTACATCACTCG..."
+  },
+  {
+    "objectID": "presentations/01_Intro.html#snp-calling",
+    "href": "presentations/01_Intro.html#snp-calling",
+    "title": "Part 1 - From bones to sequences",
+    "section": "SNP calling",
+    "text": "SNP calling\n...ACCCAAACTTTGCGCATATCGCTCTGGTTTAAACACCACACCGGGTTTACATCACTCG...\n         ACTTTGCGCGTAT             ACACCACACCGGGTTT\n             TGCGCGTATCGCT              ACACCGGGTTTACATCA\n                  GTATCGCTCAGGTTTA          CGGGCTTACATCACTCG\n                      CGCTCAGGTTTAAACAC        GCTTACATCACTCG...\n\n\n...ACCCAAACTTTGCGCGTATCGCTCAGGTTTAAACACCACACCGGGTTTACATCACTCG...\n\n...ACCCAAACTTTGCGCATATCGCTCTGGTTTAAACACCACACCGGGTTTACATCACTCG...\n    CCCAAACTTTGCGCATTT    CTGCTTTAAACACCA    GGGTTTACATCACT   \n             TGCGCATTTCGCTCTGCTTT\n                  ATTTCGCTCTGCTT\n\n\n...ACCCAAACTTTGCGCATTTCGCTCTGCTTTAAACACCACACCGGGTTTACATCACTCG..."
   }
 ]

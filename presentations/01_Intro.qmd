@@ -88,7 +88,7 @@ Images: Stoneking and Krause 2011, Nat Rev Gen; Christina Warinner
 :::
 :::
 
-## Sequencing Data {.smaller}
+# Sequencing Data {.smaller}
 
 This is how sequencing reads look like on a computer:
 
@@ -138,9 +138,7 @@ Second line: Consensus sequence
 Other lines: fragments
 :::
 
-# Interlude - RStudio Cloud
-
-## RStudio Cloud {.smaller}
+## Interlude - RStudio Cloud {.smaller}
 
 * RStudio is an open source and free platform for data science
 * RStudio-Cloud is a browser-based version
@@ -152,17 +150,17 @@ Other lines: fragments
 - Open the file `exercise_1_1_alignment.txt` under `presentations`. 
 - Edit the file to visually align the sequencing Reads to the given Reference genome:
 
-```{text eval=FALSE}
-Reference_Genome: 
-AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
 
-Sequencing_Reads:     
-GTTTACACTGGTGCACTGGACTACCCTG
-ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
-TGGTGCACTGGACTACCCTGGGTACACT
-GACTACCCTGGGTACACTGACTACGA
-GGTACACTGACTACGACTACGACTACGTT
-```
+    Reference_Genome: 
+    AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+
+    Sequencing_Reads:     
+    GTTTACACTGGTGCACTGGACTACCCTG
+    ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+    TGGTGCACTGGACTACCCTGGGTACACT
+    GACTACCCTGGGTACACTGACTACGA
+    GGTACACTGACTACGACTACGACTACGTT
+
 
 ::: callout-tip
 There may be single basepair mismatches. Find them!
@@ -170,19 +168,17 @@ There may be single basepair mismatches. Find them!
 
 ## Solution 1.1
 
-```
-                        Mismatch A -> G               Mismatch G->C
-                             |                             |
-                             |                             |
-                             V                             V
-AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
-                 GTTTACACTGGTGCACTGGACTACCCTG
-                     ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
-                         TGGTGCACTGGACTACCCTGGGTACACT
-                                   GACTACCCTGGGTACACTGACTACCA
-                                             GGTACACTGACTACCACTACGACTACGTT
-```
 
+                            Mismatch A -> G               Mismatch G->C
+                                 |                             |
+                                 |                             |
+                                 V                             V
+    AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+                     GTTTACACTGGTGCACTGGACTACCCTG
+                         ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+                             TGGTGCACTGGACTACCCTGGGTACACT
+                                       GACTACCCTGGGTACACTGACTACCA
+                                                 GGTACACTGACTACCACTACGACTACGTT
 
 
 ## `r fontawesome::fa("laptop-code", "white")` Your Turn (Exercise 1.2) {background-color="#447099" transition="slide-in" .smaller}
@@ -199,3 +195,40 @@ AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCC
 - Type `?` to get a quick help
 - Type `q` to quit.
 :::
+
+## SNP calling {auto-animate="true"}
+
+<pre>
+...ACCCAAACTTTGCGCATATCGCTCTGGTTTAAACACCACACCGGGTTTACATCACTCG...
+         ACTTTGCGC<span style="color:red">G</span>TAT             ACACCACACCGGGTTT
+             TGCGC<span style="color:red">G</span>TATCGCT              ACACCGGGTTTACATCA
+                  <span style="color:red">G</span>TATCGCTC<span style="color:red">A</span>GGTTTA          CGGGCTTACATCACTCG
+                      CGCTC<span style="color:red">A</span>GGTTTAAACAC        GCTTACATCACTCG...
+
+</pre>
+ 
+<pre>
+...ACCCAAACTTTGCGC<span style="color:red">G</span>TATCGCTC<span style="color:red">A</span>GGTTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
+
+<pre>
+...ACCCAAACTTTGCGCATATCGCTCTGGTTTAAACACCACACCGGGTTTACATCACTCG...
+    CCCAAACTTTGCGCAT<span style="color:red">T</span>T    CTG<span style="color:red">C</span>TTTAAACACCA    GGGTTTACATCACT   
+             TGCGCAT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TTT
+                  AT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TT
+
+</pre>
+
+<pre>
+...ACCCAAACTTTGCGCAT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
+
+## Next Slide {auto-animate="true"}
+
+<pre>
+...ACCCAAACTTTGCGC<span style="color:red">G</span>TATCGCTC<span style="color:red">A</span>GGTTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
+
+<pre>
+...ACCCAAACTTTGCGCAT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>

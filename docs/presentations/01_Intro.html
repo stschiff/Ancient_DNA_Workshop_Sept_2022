@@ -478,9 +478,10 @@
 </div>
 <aside><div>
 <p>Images: Stoneking and Krause 2011, Nat Rev Gen; Christina Warinner</p>
-</div></aside></section>
-<section id="sequencing-data" class="slide level2 smaller">
-<h2>Sequencing Data</h2>
+</div></aside></section></section>
+<section>
+<section id="sequencing-data" class="title-slide slide level1 smaller center">
+<h1>Sequencing Data</h1>
 <p>This is how sequencing reads look like on a computer:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">samtools</span> view data/Sample.bam <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f10</span> <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -584,14 +585,9 @@ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 <p>Top line: Reference genome</p>
 <p>Second line: Consensus sequence</p>
 <p>Other lines: fragments</p>
-</div></aside></section></section>
-<section>
-<section id="interlude---rstudio-cloud" class="title-slide slide level1 center">
-<h1>Interlude - RStudio Cloud</h1>
-
-</section>
-<section id="rstudio-cloud" class="slide level2 smaller">
-<h2>RStudio Cloud</h2>
+</div></aside></section>
+<section id="interlude---rstudio-cloud" class="slide level2 smaller">
+<h2>Interlude - RStudio Cloud</h2>
 <ul>
 <li>RStudio is an open source and free platform for data science</li>
 <li>RStudio-Cloud is a browser-based version <img data-src="images/part_01/rstudio-cloud.png"></li>
@@ -600,13 +596,13 @@ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 <section id="your-turn-exercise-1.1" class="slide level2 smaller" data-background-color="#447099" data-transition="slide-in">
 <h2><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z"></path></svg> Your Turn (Exercise 1.1)</h2>
 <ul>
-<li>Make sure you have access to our RStudio project, as described on the workshop webpage (<code>https://stschiff.github.io/Ancient_DNA_Workshop_Sept_2022/</code>)</li>
-<li>Open the file <code>exercise_1_1_alignment.txt</code> under <code>presentations</code>.</li>
-<li>Edit the file to visually align the sequencing Reads to the given Reference genome:</li>
+<li><p>Make sure you have access to our RStudio project, as described on the workshop webpage (<code>https://stschiff.github.io/Ancient_DNA_Workshop_Sept_2022/</code>)</p></li>
+<li><p>Open the file <code>exercise_1_1_alignment.txt</code> under <code>presentations</code>.</p></li>
+<li><p>Edit the file to visually align the sequencing Reads to the given Reference genome:</p>
+<p>Reference_Genome: AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT</p>
+<p>Sequencing_Reads:<br>
+GTTTACACTGGTGCACTGGACTACCCTG ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC TGGTGCACTGGACTACCCTGGGTACACT GACTACCCTGGGTACACTGACTACGA GGTACACTGACTACGACTACGACTACGTT</p></li>
 </ul>
-<div class="cell">
-
-</div>
 <div class="callout callout-tip callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
@@ -661,6 +657,33 @@ AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCC
 </div>
 </div>
 </div>
+</section>
+<section id="snp-calling" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">SNP calling</h2>
+<pre>...ACCCAAACTTTGCGCATATCGCTCTGGTTTAAACACCACACCGGGTTTACATCACTCG...
+         ACTTTGCGC<span style="color:red">G</span>TAT             ACACCACACCGGGTTT
+             TGCGC<span style="color:red">G</span>TATCGCT              ACACCGGGTTTACATCA
+                  <span style="color:red">G</span>TATCGCTC<span style="color:red">A</span>GGTTTA          CGGGCTTACATCACTCG
+                      CGCTC<span style="color:red">A</span>GGTTTAAACAC        GCTTACATCACTCG...
+
+</pre>
+<pre>...ACCCAAACTTTGCGC<span style="color:red">G</span>TATCGCTC<span style="color:red">A</span>GGTTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
+<pre>...ACCCAAACTTTGCGCATATCGCTCTGGTTTAAACACCACACCGGGTTTACATCACTCG...
+    CCCAAACTTTGCGCAT<span style="color:red">T</span>T    CTG<span style="color:red">C</span>TTTAAACACCA    GGGTTTACATCACT   
+             TGCGCAT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TTT
+                  AT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TT
+
+</pre>
+<pre>...ACCCAAACTTTGCGCAT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
+</section>
+<section id="next-slide" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Next Slide</h2>
+<pre>...ACCCAAACTTTGCGC<span style="color:red">G</span>TATCGCTC<span style="color:red">A</span>GGTTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
+<pre>...ACCCAAACTTTGCGCAT<span style="color:red">T</span>TCGCTCTG<span style="color:red">C</span>TTTAAACACCACACCGGGTTTACATCACTCG...
+</pre>
 
 <div class="footer footer-default">
 
