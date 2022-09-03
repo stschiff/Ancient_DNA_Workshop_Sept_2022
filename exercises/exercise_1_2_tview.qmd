@@ -1,0 +1,15 @@
+---
+title: "Exercise 1.2: Visualising BAM files"
+---
+
+- Click into the terminal in RStudio
+- Run `samtools tview data/Sample.bam`
+- Also try `samtools tview data/Sample.bam --reference data/HG19_MT.fasta`
+
+::: callout-tip
+- Use your cursors to move left and right
+- Use space or Ctrl-L to make bigger jumps to the right
+- Use or Ctrl-H for bigger jumps to the left.
+- Type `?` to get a quick help
+- Type `q` to quit.
+:::

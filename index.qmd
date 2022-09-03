@@ -33,22 +33,36 @@ TODO
 
 ## Day 1, Tue, Sept 6
 
+::: callout-note
+Eventually, I will link the slides here, but they are not ready for public yet
+:::
+
 | Time          | Activity                                              |
 |:--------------|:------------------------------------------------------|
-| 13:30 - 15:00 | [Introduction](presentations/01_Intro.html)                                |
+| 13:30 - 15:00 | Introduction
 | 15:00 - 15:30 | *Coffee break*                                        |
-| 16:00 - 19:00 | [TBA]()                           |
+| 16:00 - 19:00 | Part 1: Sequencing Data
 
 ## Day 2, Wed, Sept 7
 
 | Time          | Activity                         |
 |:--------------|:---------------------------------|
-| 08:30 - 9:30 | [TBA]()                     |
+| 08:30 - 9:30 | Part 2: Neandertals and ghosts                     |
 | 9:30 - 10:00 | *Coffee break*                   |
-| 10:00 - 12:00 | [TBA]()                          |
+| 10:00 - 12:00 | Part 2: Neandertals and ghosts (cont.)                           |
 | 12:00 - 13:00 | *Lunch break*                    |
-| 13:00 - 15:00 | [TBA]()  |
+| 13:00 - 15:00 | Part 3: Human history during the last 10,000 years  |
 
+# Exercises
+
+* [Exercise 1.1: Alignment](exercises/exercise_1_1_alignment.qmd)
+* [Exercise 1.2: Visualising BAM files](exercises/exercise_1_2_tview.qmd)
+* [Exercise 1.3: Genetic sex determination](exercises/exercise_1_3_sex_determination.qmd)
+* [Exercise 2.1: Neandertal admixture in modern humans](exercises/exercise_2_1_abba_baba.qmd)
+
+## Solutions
+
+* [Solution 1.1](exercises/solution_1_1_alignment.md)
 
 # Instructor
 

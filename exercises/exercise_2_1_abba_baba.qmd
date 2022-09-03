@@ -1,0 +1,74 @@
+---
+title: "Exercise 2.1: Abba Baba test"
+engine: knitr
+---
+
+```{r echo=FALSE}
+knitr::opts_knit$set(root.dir = "../")
+```
+
+A genotype matrix looks conceptually like this:
+
+```
+SNPs / Individuals -> Ind1 Ind2 Ind3 Ind4 ...
+ |
+ V
+Snp1                   G    A    A    G   . . .
+Snp2                   G    T    T    C   . . .
+Snp3                   T    A    T    G   . . .
+Snp4                   G    A    A    C   . . .
+ .                     .    .    .    .   .
+ .                     .    .    .    .     .
+ .                     .    .    .    .       .
+ ```
+ 
+We typically deal with dozens to tens of thousands of individuals, and hundreds of thousands to several million SNPs. In practice, to make this matrix easier computable, it is divided into three files:
+- A file denoting the list of individuals (i.e. the column names)
+- A file denoting the list of SNPs (i.e. the row names)
+- A genotype matrix, containing the actual genotype data.
+
+Let's take a look at the individual file first:
+
+```{bash}
+cat data/Abba_Baba_dataset/Abba_Baba_dataset.ind
+```
+
+where you see four individuals. In each row, the first column denotes the sample name, the second column the sex, and the third column a group label, which is irrelevant for now. Here is a quick summary for the four:
+
+- `NA12878.SG` is a present-day human from the US (with European ancestry).
+- `NA19240.SG` is a present-day human from Nigeria.
+- `VindijaG1_final_provisional.SG` is a Neanderthaler from Vindija Cave in Croatia, who died approximately 50,000 years ago.
+- `Chimp.REF` is the Chimpanzee reference genome.
+
+Next, let's view the first few SNPs:
+
+```{bash}
+head data/Abba_Baba_dataset/Abba_Baba_dataset.snp
+```
+
+Each row contains a SNP, with an ID (first column), chromosome (second column), position in base-pairs along the chromosome (fourth column), and the two alleles present at this SNP (last two columns).
+
+Let's see how many SNPs there are:
+```{bash}
+cat data/Abba_Baba_dataset/Abba_Baba_dataset.snp | wc -l
+```
+
+So around 1.2 million SNPs.
+
+Let's now take a look at the genotype file:
+```{bash}
+head data/Abba_Baba_dataset/Abba_Baba_dataset.geno
+```
+
+Here, we have genotype data encoded in the EIGENSTRAT format, which - in our case - contains the following code:
+
+- `0` -> Allele 1 (the "alternative allele")
+- `2` -> Allele 2 (the "reference allele")
+- `9` -> Missing data
+
+::: callout-note
+Technically, the format also contains `1` for heterozygous genotypes, but the data we analyse here is "pseudo-haploid", so represents only one allele for each individual.
+:::
+
+Exercise: Obviously, the genotype file contains the right number of columns (four) for the four individuals we have. Check that it also contains the right number of rows, i.e. the same number that you obtained above using the `wc` command.
+

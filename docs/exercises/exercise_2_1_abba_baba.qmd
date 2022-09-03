@@ -1,0 +1,37 @@
+---
+title: "Exercise 2.1: Abba Baba test"
+---
+
+A genotype matrix looks conceptually like this:
+
+```
+SNPs / Individuals -> Ind1 Ind2 Ind3 Ind4 ...
+ |
+ V
+Snp1                   G    A    A    G   . . .
+Snp2                   G    T    T    C   . . .
+Snp3                   T    A    T    G   . . .
+Snp4                   G    A    A    C   . . .
+ .                     .    .    .    .   .
+ .                     .    .    .    .     .
+ .                     .    .    .    .       .
+ ```
+ 
+We typically deal with dozens to tens of thousands of individuals, and hundreds of thousands to several million SNPs. In practice, to make this matrix easier computable, it is divided into three files:
+- A file denoting the list of individuals (i.e. the column names)
+- A file denoting the list of SNPs (i.e. the row names)
+- A genotype matrix, containing the actual genotype data.
+
+In our example, we have genotype data encoded in the EIGENSTRAT format, which - in our case - contains the following code:
+- `0` -> Allele 1 (the "alternative allele")
+- `2` -> Allele 2 (the "reference allele")
+- `9` -> Missing data
+
+Note: Technically, the format also contains `1` for heterozygous genotypes, but the data we analyse here is "pseudo-haploid", so represents only one allele for each individual.
+
+Let's take a look at the individual file first:
+```{bash}
+cat 
+
+```
+

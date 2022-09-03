@@ -1,0 +1,11 @@
+# Manually align the Sequencing Reads to the Reference genome, using spaces to move each read to the matching position. Watch out for mismatches, which may indicate a genetic variant.
+
+Reference_Genome: 
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+
+Sequencing_Reads:     
+GTTTACACTGGTGCACTGGACTACCCTG
+ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+TGGTGCACTGGACTACCCTGGGTACACT
+GACTACCCTGGGTACACTGACTACGA
+GGTACACTGACTACGACTACGACTACGTT

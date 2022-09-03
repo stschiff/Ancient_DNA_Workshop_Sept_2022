@@ -1,17 +1,15 @@
 ---
-title: "exercise_1_3_sex_determination.qmd"
+title: "Exercise 1.3: Sex determination"
 ---
 
-```{r message=FALSE}
-library(ggplot2)
-library(magrittr)
-library(dplyr)
+```{r echo=FALSE}
+knitr::opts_knit$set(root.dir = "../")
 ```
 
 Import the data
 
 ```{r}
-dat <- readr::read_tsv("../data/SexDet.txt", col_types = "ciiiiii")
+dat <- readr::read_tsv("data/SexDet.txt", col_types = "ciiiiii")
 ```
 
 View it:
@@ -22,6 +20,7 @@ dat
 Interactively explore it, by clicking on "dat" in the "Environment" tab in the upper right pane in RStudio.
 
 Here is an explanation for the columns:
+
 - Sample - The name of the sample
 - TotalAut - The total number of autosomal positions analysed (chromosomes 1-22)
 - TotalX - The total number of X-chromosomal positions analysed
@@ -30,9 +29,12 @@ Here is an explanation for the columns:
 - NrX - The total number of reads mapping to the X-chromosomal positions
 - NrY - The total number of reads mapping to the Y-chromosomal positions
 
-Let's try a first simple plot:
+Let's try a first simple plot. We first need to load the `ggplot2` library, and while we're at it, we also load the `magrittr` library to have the pipe operator `%>%` available for later:
 
 ```{r}
+library(ggplot2)
+library(magrittr)
+
 ggplot(dat) + geom_point(aes(x = NrAut, y = NrX))
 ```
 
@@ -43,7 +45,7 @@ Of course, the three categories, X, Y and Autosomes have vastly different sizes.
 
 ```{r}
 dat2 <- dat %>%
-  mutate(
+  dplyr::mutate(
     covAut = NrAut / TotalAut,
     covX   = NrX   / TotalX,
     covY   = NrY   / TotalY

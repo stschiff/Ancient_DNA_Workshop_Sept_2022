@@ -1,0 +1,23 @@
+---
+title: "Exercise 1.1: Alignment"
+---
+
+Manually align the Sequencing Reads to the Reference genome, using spaces to move each read to the matching position. Watch out for mismatches, which may indicate a genetic variant.
+
+::: callout-tip
+Open an empty file in RStudio by clicking on the button with the little white rectangle and the green plus side on the top left of the App, simply selecting "Text file", and copy paste the Reference genome and the sequences below in. Then use spaces to bring the sequences to the right place along the reference.
+:::
+
+---
+
+```
+Reference_Genome: 
+AACACTTGGTCACTGGGGTTTACACTGGTACACTGGACTACCCTGGGTACACTGACTACGACTACGACTACGTTTACCCCAATTT
+
+Sequencing_Reads:     
+GTTTACACTGGTGCACTGGACTACCCTG
+ACACTGGTGCACTGGACTACCCTGGGTACACTGACTAC
+TGGTGCACTGGACTACCCTGGGTACACT
+GACTACCCTGGGTACACTGACTACGA
+GGTACACTGACTACGACTACGACTACGTT
+```
