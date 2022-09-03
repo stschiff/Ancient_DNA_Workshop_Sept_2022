@@ -1,7 +1,10 @@
 ---
 title: "Exercise 2.1: Abba Baba test"
 engine: knitr
+bibliography: ../references.bib
 ---
+
+## Genotype data
 
 ```{r echo=FALSE}
 knitr::opts_knit$set(root.dir = "../")
@@ -23,6 +26,7 @@ Snp4                   G    A    A    C   . . .
  ```
  
 We typically deal with dozens to tens of thousands of individuals, and hundreds of thousands to several million SNPs. In practice, to make this matrix easier computable, it is divided into three files:
+
 - A file denoting the list of individuals (i.e. the column names)
 - A file denoting the list of SNPs (i.e. the row names)
 - A genotype matrix, containing the actual genotype data.
@@ -71,4 +75,53 @@ Technically, the format also contains `1` for heterozygous genotypes, but the da
 :::
 
 Exercise: Obviously, the genotype file contains the right number of columns (four) for the four individuals we have. Check that it also contains the right number of rows, i.e. the same number that you obtained above using the `wc` command.
+
+## Exploring Neanderthal-human genetic similarity
+Given that we now have a large number of genotypes at our hands, between Neanderthals and modern humans, we can ask a very simple question: Is the Neanderthal genome genetically more similar to one of the two modern humans than the other?
+
+To answer this, we need to count in how many positions the Neanderthal matches each of the two modern human genomes. And to make this more meaningful, we focus on genetic variants which are different from Chimpanzee, i.e. mutations which appeared along the human lineage since the split from Chimpanzee. 
+
+We first select from the genotype file the relevant columns. For example, to select genotypes from the US-individual (first column), Neanderthal (third column) and Chimnpanzee (fourth column) we can use the command `cut -c1,3,4`, like this:
+
+```{bash}
+cut -c1,3,4 data/Abba_Baba_dataset/Abba_Baba_dataset.geno | head
+```
+
+::: callout-note
+Piping a result of a computation into `head` is a very common trick in exploratory data analysis in the shell. It avoids a super-long output. Here, we just would like to see the first ten lines of the result to see whether it's working as expected.
+:::
+
+OK, this looks good. Now we have to filter lines at which the two genotypes in Neanderthal and Human are similar, but different from Chimpanzee. In other words, we are looking for two possible patterns in the three individuals: `002` or `220`. We use the command `grep`, and then count the lines, using `wc`:
+```{bash}
+cut -c1,3,4 data/Abba_Baba_dataset/Abba_Baba_dataset.geno | grep -e 002 -e 220 | wc -l
+```
+
+Exercise: Repeat the same exercise for the Nigerian individual (which is in column 2 instead of column 1 of the genotype file). You should get `61933`.
+
+Comparing the two numbers, we see that the US individual shares around 3000 more variants with the Croatian Neanderthal than the Nigerian individual does (`65283` vs `61933`).
+
+## The ABBA-BABA test
+
+The analysis that we did above is very similar to what has been called the ABBA-BABA test in the population genetic literature (see @Green2010-rv). Specifically, when considering the quadruple of individuals as above, in the order:
+
+- Outgroup (such as Chimp)
+- Neanderthal
+- Individual with Non-African ancestry
+- Individual with African ancestry
+
+we consider two types of allelic patterns, ABBA and BABA. The four letters refer to the alleles in the four individuals, and A and B simply denote the two alleles. The two patterns correspond to the above computed similarities of derived variants from Chimp:
+
+- ABBA -> Here, the Non-African, but not the African, shares the derived allele with Neanderthal
+- BABA -> Here, the African, but not the Non-African, shares the derived allele with Neanderthal.
+
+@Green2010-rv then defined a simple statistic:
+
+$$
+D = \frac{n_{ABBA} - n_{BABA}}{n_{ABBA} + n_{BABA}}.
+$$
+
+Exercise: Above we have computed counts of the slightly simpler pattern `AAB` in their two realisations `002` and `220`. To compute the D-Statistic, we need to operate on all four individuals, where `ABBA` is realised by `0220` and `2002`, and `BABA` is realised by `2020` and `0202`. Compute the count of `ABBA` and `BABA` using the above `grep` pipeline. You should get $n_{ABBA} = 21787$ and $n_{BABA} = 20250$.
+
+Exercise: Open an R console to compute the D-Statistic itself, using the two numbers. The number you get is a (very rough) estimate of the admixture proportion of Neanderthal ancestry in modern humans with Non-African ancestry today.
+
 

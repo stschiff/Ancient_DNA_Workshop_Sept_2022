@@ -83,6 +83,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -122,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -159,7 +179,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#genotype-data" id="toc-genotype-data" class="nav-link active" data-scroll-target="#genotype-data">Genotype data</a></li>
+  <li><a href="#exploring-neanderthal-human-genetic-similarity" id="toc-exploring-neanderthal-human-genetic-similarity" class="nav-link" data-scroll-target="#exploring-neanderthal-human-genetic-similarity">Exploring Neanderthal-human genetic similarity</a></li>
+  <li><a href="#the-abba-baba-test" id="toc-the-abba-baba-test" class="nav-link" data-scroll-target="#the-abba-baba-test">The ABBA-BABA test</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -180,6 +208,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="genotype-data" class="level2">
+<h2 class="anchored" data-anchor-id="genotype-data">Genotype data</h2>
 <div class="cell">
 
 </div>
@@ -194,7 +224,12 @@ Snp4                   G    A    A    C   . . .
  .                     .    .    .    .   .
  .                     .    .    .    .     .
  .                     .    .    .    .       .</code></pre>
-<p>We typically deal with dozens to tens of thousands of individuals, and hundreds of thousands to several million SNPs. In practice, to make this matrix easier computable, it is divided into three files: - A file denoting the list of individuals (i.e.&nbsp;the column names) - A file denoting the list of SNPs (i.e.&nbsp;the row names) - A genotype matrix, containing the actual genotype data.</p>
+<p>We typically deal with dozens to tens of thousands of individuals, and hundreds of thousands to several million SNPs. In practice, to make this matrix easier computable, it is divided into three files:</p>
+<ul>
+<li>A file denoting the list of individuals (i.e.&nbsp;the column names)</li>
+<li>A file denoting the list of SNPs (i.e.&nbsp;the row names)</li>
+<li>A genotype matrix, containing the actual genotype data.</li>
+</ul>
 <p>Let’s take a look at the individual file first:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/Abba_Baba_dataset/Abba_Baba_dataset.ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -273,10 +308,80 @@ Note
 </div>
 </div>
 <p>Exercise: Obviously, the genotype file contains the right number of columns (four) for the four individuals we have. Check that it also contains the right number of rows, i.e.&nbsp;the same number that you obtained above using the <code>wc</code> command.</p>
+</section>
+<section id="exploring-neanderthal-human-genetic-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-neanderthal-human-genetic-similarity">Exploring Neanderthal-human genetic similarity</h2>
+<p>Given that we now have a large number of genotypes at our hands, between Neanderthals and modern humans, we can ask a very simple question: Is the Neanderthal genome genetically more similar to one of the two modern humans than the other?</p>
+<p>To answer this, we need to count in how many positions the Neanderthal matches each of the two modern human genomes. And to make this more meaningful, we focus on genetic variants which are different from Chimpanzee, i.e.&nbsp;mutations which appeared along the human lineage since the split from Chimpanzee.</p>
+<p>We first select from the genotype file the relevant columns. For example, to select genotypes from the US-individual (first column), Neanderthal (third column) and Chimnpanzee (fourth column) we can use the command <code>cut -c1,3,4</code>, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-c1,3,4</span> data/Abba_Baba_dataset/Abba_Baba_dataset.geno <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>009
+099
+099
+009
+090
+000
+092
+999
+909
+009</code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Piping a result of a computation into <code>head</code> is a very common trick in exploratory data analysis in the shell. It avoids a super-long output. Here, we just would like to see the first ten lines of the result to see whether it’s working as expected.</p>
+</div>
+</div>
+<p>OK, this looks good. Now we have to filter lines at which the two genotypes in Neanderthal and Human are similar, but different from Chimpanzee. In other words, we are looking for two possible patterns in the three individuals: <code>002</code> or <code>220</code>. We use the command <code>grep</code>, and then count the lines, using <code>wc</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-c1,3,4</span> data/Abba_Baba_dataset/Abba_Baba_dataset.geno <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-e</span> 002 <span class="at">-e</span> 220 <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   65283</code></pre>
+</div>
+</div>
+<p>Exercise: Repeat the same exercise for the Nigerian individual (which is in column 2 instead of column 1 of the genotype file). You should get <code>61933</code>.</p>
+<p>Comparing the two numbers, we see that the US individual shares around 3000 more variants with the Croatian Neanderthal than the Nigerian individual does (<code>65283</code> vs <code>61933</code>).</p>
+</section>
+<section id="the-abba-baba-test" class="level2">
+<h2 class="anchored" data-anchor-id="the-abba-baba-test">The ABBA-BABA test</h2>
+<p>The analysis that we did above is very similar to what has been called the ABBA-BABA test in the population genetic literature (see <span class="citation" data-cites="Green2010-rv">Green et al. (<a href="#ref-Green2010-rv" role="doc-biblioref">2010</a>)</span>). Specifically, when considering the quadruple of individuals as above, in the order:</p>
+<ul>
+<li>Outgroup (such as Chimp)</li>
+<li>Neanderthal</li>
+<li>Individual with Non-African ancestry</li>
+<li>Individual with African ancestry</li>
+</ul>
+<p>we consider two types of allelic patterns, ABBA and BABA. The four letters refer to the alleles in the four individuals, and A and B simply denote the two alleles. The two patterns correspond to the above computed similarities of derived variants from Chimp:</p>
+<ul>
+<li>ABBA -&gt; Here, the Non-African, but not the African, shares the derived allele with Neanderthal</li>
+<li>BABA -&gt; Here, the African, but not the Non-African, shares the derived allele with Neanderthal.</li>
+</ul>
+<p><span class="citation" data-cites="Green2010-rv">Green et al. (<a href="#ref-Green2010-rv" role="doc-biblioref">2010</a>)</span> then defined a simple statistic:</p>
+<p><span class="math display">\[
+D = \frac{n_{ABBA} - n_{BABA}}{n_{ABBA} + n_{BABA}}.
+\]</span></p>
+<p>Exercise: Above we have computed counts of the slightly simpler pattern <code>AAB</code> in their two realisations <code>002</code> and <code>220</code>. To compute the D-Statistic, we need to operate on all four individuals, where <code>ABBA</code> is realised by <code>0220</code> and <code>2002</code>, and <code>BABA</code> is realised by <code>2020</code> and <code>0202</code>. Compute the count of <code>ABBA</code> and <code>BABA</code> using the above <code>grep</code> pipeline. You should get <span class="math inline">\(n_{ABBA} = 21787\)</span> and <span class="math inline">\(n_{BABA} = 20250\)</span>.</p>
+<p>Exercise: Open an R console to compute the D-Statistic itself, using the two numbers. The number you get is a (very rough) estimate of the admixture proportion of Neanderthal ancestry in modern humans with Non-African ancestry today.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Green2010-rv" class="csl-entry" role="doc-biblioentry">
+Green, Richard E, Johannes Krause, Adrian W Briggs, Tomislav Maricic, Udo Stenzel, Martin Kircher, Nick Patterson, et al. 2010. <span>“A Draft Sequence of the Neandertal Genome.”</span> <em>Science</em> 328 (5979): 710–22. <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&amp;id=20448178&amp;retmode=ref&amp;cmd=prlinks">http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&amp;id=20448178&amp;retmode=ref&amp;cmd=prlinks</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
