@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "!snippets/"
+    - "!presentations/"
 
 website:
   title: "Ancient DNA Data Analysis - Workshop Uni Siegen 2022"

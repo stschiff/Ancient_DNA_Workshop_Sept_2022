@@ -63,7 +63,7 @@ Eventually, I will link the slides here, but they are not ready for public yet
 
 ## Solutions
 
-* [Solution 1.1](exercises/solution_1_1_alignment.md)
+* [Solution 1.1](exercises/solution_1_1_alignment.qmd)
 
 # Instructor
 
