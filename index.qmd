@@ -59,6 +59,7 @@ Eventually, I will link the slides here, but they are not ready for public yet
 * [Exercise 1.2: Visualising BAM files](exercises/exercise_1_2_tview.qmd)
 * [Exercise 1.3: Genetic sex determination](exercises/exercise_1_3_sex_determination.qmd)
 * [Exercise 2.1: Neandertal admixture in modern humans](exercises/exercise_2_1_abba_baba.qmd)
+* [Exercise 3.1: Recent human population structure](exercises/exercise_3_1_PCA.qmd)
 
 ## Solutions
 

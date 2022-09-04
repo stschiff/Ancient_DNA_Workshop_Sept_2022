@@ -102,7 +102,7 @@ Comparing the two numbers, we see that the US individual shares around 3000 more
 
 ## The ABBA-BABA test
 
-The analysis that we did above is very similar to what has been called the ABBA-BABA test in the population genetic literature (see @Green2010-rv). Specifically, when considering the quadruple of individuals as above, in the order:
+The analysis that we did above is very similar to what has been called the ABBA-BABA test in the population genetic literature (@Green2010-rv). Specifically, when considering the quadruple of individuals as above, in the order:
 
 - Outgroup (such as Chimp)
 - Neanderthal
