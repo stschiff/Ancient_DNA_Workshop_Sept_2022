@@ -6,7 +6,7 @@ title: "Exercise 1.2: Visualising BAM files"
 - Type `samtools tview data/Sample.bam`, and click `<Enter>`.
 - Follow the tips below to move around the alignment with your cursor.
 - **Task 1**: Can you identify Variants, i.e. systematic differences from the Reference?
-- **Task 2**: Also try `samtools tview data/Sample.bam --reference data/HG19_MT.fasta`
+- **Task 2**: Also try `samtools tview data/Sample.bam --reference data/hg19_MT.fasta`
 
 ::: callout-tip
 - Use your cursors to move left and right
