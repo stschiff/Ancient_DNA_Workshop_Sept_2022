@@ -11,6 +11,10 @@ knitr::opts_knit$set(root.dir = "../")
 
 In this exercise, we will explore two Principal Components analyses of human genetic variation in Eurasia. 
 
+::: callout-important
+All commands in this exercise are carried out in the "Console" window, not the "Terminal"!
+:::
+
 We again need two libraries loaded:
 ```{r}
 library(magrittr)
@@ -45,17 +49,20 @@ ggplot(pcaDat) + geom_point(aes(x = PC1, y = PC2)) +
   )
 ```
 
-Task: The details of this code aren't too important. But you can probably easily see how to add more groups to highlight. Browse through the group names in the dataset (which you know how to do from the previous task) and pick a few more to highlight. Find out which populations mark the cornerstones of this PCA.
+Task: The details of this code aren't too important. But you can probably easily see how to add more groups to highlight.
 
-## Showing all populations
+**Task**: Browse through the group names in the dataset (which you know how to do from the previous task) and pick a few more to highlight. Find out which populations mark the cornerstones of this PCA.
 
-OK, but how do we systematically show all the populations? There are too many of those to separate them all by different colors, or by different symbols, so we need to combine colours and symbols and use all the combinations of them to show all the populations.
 
-```{r}
+<!-- ## Showing all populations
+
+OK, but how do we systematically show all the populations? There are too many of those to separate them all by different colors, or by different symbols, so we need to combine colours and symbols and use all the combinations of them to show all the populations. -->
+
+<!-- ```{r}
 populations <- readr::read_csv("data/WestEurasia.poplist.txt", col_names = F)$X1
-```
+``` -->
 
-```{r, fig.height=10}
+<!-- ```{r, fig.height=10}
 pcaDat %>%
   dplyr::filter(Group %in% populations) %>%
   ggplot() +
@@ -65,7 +72,7 @@ pcaDat %>%
   )) + 
   scale_shape_manual(values = rep(0:18, len = 57)) + 
   theme(legend.position = "bottom")
-```
+``` -->
 
 ## Adding ancient populations
 
@@ -83,6 +90,7 @@ The first two populations are from a publication on ancient Fennoscandian genome
 
 ```{r, fig.height=10}
 ancient_populations <-  c("Levanluhta", "BolshoyOleniOstrov", "WHG", "LBK_EN", "Yamnaya_Samara", "Saami.DG") 
+populations <- readr::read_csv("data/WestEurasia.poplist.txt", col_names = F)$X1
 
 ggplot() +
   geom_point(

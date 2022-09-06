@@ -182,8 +182,7 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#showing-all-populations" id="toc-showing-all-populations" class="nav-link active" data-scroll-target="#showing-all-populations">Showing all populations</a></li>
-  <li><a href="#adding-ancient-populations" id="toc-adding-ancient-populations" class="nav-link" data-scroll-target="#adding-ancient-populations">Adding ancient populations</a></li>
+  <li><a href="#adding-ancient-populations" id="toc-adding-ancient-populations" class="nav-link active" data-scroll-target="#adding-ancient-populations">Adding ancient populations</a></li>
   <li><a href="#all-eurasian-pca" id="toc-all-eurasian-pca" class="nav-link" data-scroll-target="#all-eurasian-pca">All-Eurasian PCA</a></li>
   </ul>
 </nav>
@@ -211,6 +210,19 @@ div.csl-indent {
 
 </div>
 <p>In this exercise, we will explore two Principal Components analyses of human genetic variation in Eurasia.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All commands in this exercise are carried out in the “Console” window, not the “Terminal”!</p>
+</div>
+</div>
 <p>We again need two libraries loaded:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
@@ -241,28 +253,25 @@ div.csl-indent {
 <p><img src="exercise_3_1_PCA_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Task: The details of this code aren’t too important. But you can probably easily see how to add more groups to highlight. Browse through the group names in the dataset (which you know how to do from the previous task) and pick a few more to highlight. Find out which populations mark the cornerstones of this PCA.</p>
-<section id="showing-all-populations" class="level2">
-<h2 class="anchored" data-anchor-id="showing-all-populations">Showing all populations</h2>
-<p>OK, but how do we systematically show all the populations? There are too many of those to separate them all by different colors, or by different symbols, so we need to combine colours and symbols and use all the combinations of them to show all the populations.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>populations <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/WestEurasia.poplist.txt"</span>, <span class="at">col_names =</span> F)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pcaDat <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> populations) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> Group, <span class="at">shape =</span> Group</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span> </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">len =</span> <span class="dv">57</span>)) <span class="sc">+</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="exercise_3_1_PCA_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
+<p>Task: The details of this code aren’t too important. But you can probably easily see how to add more groups to highlight.</p>
+<p><strong>Task</strong>: Browse through the group names in the dataset (which you know how to do from the previous task) and pick a few more to highlight. Find out which populations mark the cornerstones of this PCA.</p>
+<!-- ## Showing all populations
+
+OK, but how do we systematically show all the populations? There are too many of those to separate them all by different colors, or by different symbols, so we need to combine colours and symbols and use all the combinations of them to show all the populations. -->
+<!-- ```{r}
+populations <- readr::read_csv("data/WestEurasia.poplist.txt", col_names = F)$X1
+``` -->
+<!-- ```{r, fig.height=10}
+pcaDat %>%
+  dplyr::filter(Group %in% populations) %>%
+  ggplot() +
+  geom_point(aes(
+    x = PC1, y = PC2, 
+    color = Group, shape = Group
+  )) + 
+  scale_shape_manual(values = rep(0:18, len = 57)) + 
+  theme(legend.position = "bottom")
+``` -->
 <section id="adding-ancient-populations" class="level2">
 <h2 class="anchored" data-anchor-id="adding-ancient-populations">Adding ancient populations</h2>
 <p>Of course, until now we haven’t yet included any of the actual ancient test individuals that we want to analyse.</p>
@@ -276,35 +285,36 @@ div.csl-indent {
 </ul>
 <p>The first two populations are from a publication on ancient Fennoscandian genomes (<span class="citation" data-cites="Lamnidis2018-xa">Lamnidis et al. (<a href="#ref-Lamnidis2018-xa" role="doc-biblioref">2018</a>)</span>), and are instructive to understand what PCA can be used for. The latter three populations are from two famous publications (<span class="citation" data-cites="Lazaridis2014-ef">Lazaridis et al. (<a href="#ref-Lazaridis2014-ef" role="doc-biblioref">2014</a>)</span>, <span class="citation" data-cites="Haak2015-uw">Haak et al. (<a href="#ref-Haak2015-uw" role="doc-biblioref">2015</a>)</span>). It can be shown that modern European genetic diversity is formed by a mix of three ancestries represented by these ancient groups. To highlight these ancient populations, we plot them in black and using different symbols. While we’re at it, we should also add the population called “Saami.DG”:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ancient_populations <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"Levanluhta"</span>, <span class="st">"BolshoyOleniOstrov"</span>, <span class="st">"WHG"</span>, <span class="st">"LBK_EN"</span>, <span class="st">"Yamnaya_Samara"</span>, <span class="st">"Saami.DG"</span>) </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> populations),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> Group, <span class="at">shape =</span> Group</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations),</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">shape =</span> <span class="dv">15</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations) <span class="sc">%&gt;%</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">PC1 =</span> <span class="fu">mean</span>(PC1), <span class="at">PC2 =</span> <span class="fu">mean</span>(PC2)),</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">label =</span> Group</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">14</span>, <span class="at">len =</span> <span class="dv">57</span>)) <span class="sc">+</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ancient_populations <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"Levanluhta"</span>, <span class="st">"BolshoyOleniOstrov"</span>, <span class="st">"WHG"</span>, <span class="st">"LBK_EN"</span>, <span class="st">"Yamnaya_Samara"</span>, <span class="st">"Saami.DG"</span>) </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>populations <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/WestEurasia.poplist.txt"</span>, <span class="at">col_names =</span> F)<span class="sc">$</span>X1</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> populations),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> Group, <span class="at">shape =</span> Group</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">shape =</span> <span class="dv">15</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations) <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">PC1 =</span> <span class="fu">mean</span>(PC1), <span class="at">PC2 =</span> <span class="fu">mean</span>(PC2)),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">label =</span> Group</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">14</span>, <span class="at">len =</span> <span class="dv">57</span>)) <span class="sc">+</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="exercise_3_1_PCA_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="exercise_3_1_PCA_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>OK, so what are we looking at? This is quite a rich plot, of course, and we won’t discuss all the details here. I just want to highlight two things. First, you can see that most present-day Europeans are scattered in a relatively tight space in the center of a triangle span up by the WHG on the lower left, LBK_EN on the lower right (seen from European points) and by Yamnaya_Samara (top). Indeed, a widely-accepted model for present-day Europeans assumes these three ancient source populations for all Europeans (<span class="citation" data-cites="Lazaridis2014-ef">Lazaridis et al. (<a href="#ref-Lazaridis2014-ef" role="doc-biblioref">2014</a>)</span>, <span class="citation" data-cites="Haak2015-uw">Haak et al. (<a href="#ref-Haak2015-uw" role="doc-biblioref">2015</a>)</span>).</p>
@@ -314,36 +324,36 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="all-eurasian-pca">All-Eurasian PCA</h2>
 <p>We can make a similar plot using the all-Eurasian PCA that we have run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>populations <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/AllEurasia.poplist.txt"</span>, <span class="at">col_names =</span> F)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>populations <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/AllEurasia.poplist.txt"</span>, <span class="at">col_names =</span> F)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> populations),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> Group, <span class="at">shape =</span> Group</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations),</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">shape =</span> <span class="dv">15</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations) <span class="sc">%&gt;%</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">PC1 =</span> <span class="fu">mean</span>(PC1), <span class="at">PC2 =</span> <span class="fu">mean</span>(PC2)),</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">label =</span> Group</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">14</span>, <span class="at">len =</span> <span class="dv">108</span>)) <span class="sc">+</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> populations),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> Group, <span class="at">shape =</span> Group</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">shape =</span> <span class="dv">15</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> pcaDat2 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Group <span class="sc">%in%</span> ancient_populations) <span class="sc">%&gt;%</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">PC1 =</span> <span class="fu">mean</span>(PC1), <span class="at">PC2 =</span> <span class="fu">mean</span>(PC2)),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">label =</span> Group</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">14</span>, <span class="at">len =</span> <span class="dv">108</span>)) <span class="sc">+</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="exercise_3_1_PCA_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="exercise_3_1_PCA_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>This PCA looks quite different. Here, we have all Western-Eurasian groups squished together on the left side of the plot, and on the right we have East-Asian populations. The plot roughly reflects Geography, with Northern East-Asian people such as the Nganasan on the top-right, and Southern East-Asian people like the Taiwanese Ami on the lower right. Here we can now see that the ancient samples from Russia and Finnland, as well as present-day Uralic populations are actually distributed between East and West, contrary to most other Europeans. This confirms that these group in Europe have quite a distinctive East-Asian genetic ancestry, and we found that it is best represented by the Nganasan (<span class="citation" data-cites="Lamnidis2018-xa">Lamnidis et al. (<a href="#ref-Lamnidis2018-xa" role="doc-biblioref">2018</a>)</span>).</p>
