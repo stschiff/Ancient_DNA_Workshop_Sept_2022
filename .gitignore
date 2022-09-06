@@ -6,3 +6,5 @@ bin/
 01_Intro_files/
 miniconda/
 /.quarto/
+Software/
+local/
