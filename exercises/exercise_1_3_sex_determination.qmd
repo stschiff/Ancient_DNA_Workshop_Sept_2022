@@ -6,19 +6,18 @@ title: "Exercise 1.3: Sex determination"
 knitr::opts_knit$set(root.dir = "../")
 ```
 
-Open the "Console" Tab in the lower-left pane in RStudio.
+In the following exercise, we are executing R commands. You can do one of two things to run them yourself:
 
-Copy the following command into the console and press `<Enter>`
+1. Copy each command (for example using the little copy-icon on the right in each code-chunk) and paste them into the R console (the "Console" tab in the lower left pane on RStudio), then press `<Enter>`.
+2. Open this exercise in RStudio, by going to the "Files" tab in the lower right in RStudio, clicking on `exercises` and then on `exercise_1_3_sex_determination.qmd`. You should then see little green arrows beside each code-chunk. Click on them, and they are automatically executed in the Console. 
+
+Let's start by loading a data table into memory:
 
 ```{r}
 dat <- readr::read_tsv("data/SexDet.txt", col_types = "ciiiiii")
 ```
 
-::: callout-tip
-On this webpage, all code-chunks have a little icon on the right which copies the content to the clipboard. You can then use Ctrl-V to copy it inside the R console.
-:::
-
-You can view the dataset by typing its name into the R-console:
+Let's view the dataset by simply typing its name:
 ```{r}
 dat
 ```
