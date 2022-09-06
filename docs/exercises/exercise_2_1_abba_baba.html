@@ -230,7 +230,7 @@ Snp4                   G    A    A    C   . . .
 <li>A file denoting the list of SNPs (i.e.&nbsp;the row names)</li>
 <li>A genotype matrix, containing the actual genotype data.</li>
 </ul>
-<p>Let’s take a look at the individual file first:</p>
+<p>Let’s take a look at the individual file first. Type the following command into the “Terminal” in the lower-left pane in RStudio:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/Abba_Baba_dataset/Abba_Baba_dataset.ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -238,6 +238,19 @@ Snp4                   G    A    A    C   . . .
 NA19240.SG  F   YRI.SG
 VindijaG1_final_provisional.SG  F   VindijaG1_Neanderthal.SG
 Chimp.REF   M   Chimp.REF</code></pre>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All commands in this exercise are carried out in the “Terminal”, not the “Console”!</p>
 </div>
 </div>
 <p>where you see four individuals. In each row, the first column denotes the sample name, the second column the sex, and the third column a group label, which is irrelevant for now. Here is a quick summary for the four:</p>
@@ -339,7 +352,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Piping a result of a computation into <code>head</code> is a very common trick in exploratory data analysis in the shell. It avoids a super-long output. Here, we just would like to see the first ten lines of the result to see whether it’s working as expected.</p>
+<p>You may get a warning that says “Broken Pipe”, which can safely ignore. Piping a result of a computation into <code>head</code> is a very common trick in exploratory data analysis in the shell. It avoids a super-long output. Here, we just would like to see the first ten lines of the result to see whether it’s working as expected. <code>head</code> simply aborts the output after a 10 lines.</p>
 </div>
 </div>
 <p>OK, this looks good. Now we have to filter lines at which the two genotypes in Neanderthal and Human are similar, but different from Chimpanzee. In other words, we are looking for two possible patterns in the three individuals: <code>002</code> or <code>220</code>. We use the command <code>grep</code>, and then count the lines, using <code>wc</code>:</p>
@@ -349,7 +362,7 @@ Note
 <pre><code>   65283</code></pre>
 </div>
 </div>
-<p>Exercise: Repeat the same exercise for the Nigerian individual (which is in column 2 instead of column 1 of the genotype file). You should get <code>61933</code>.</p>
+<p><strong>Task</strong>: Repeat the same exercise for the Nigerian individual (which is in column 2 instead of column 1 of the genotype file). You should get <code>61933</code>.</p>
 <p>Comparing the two numbers, we see that the US individual shares around 3000 more variants with the Croatian Neanderthal than the Nigerian individual does (<code>65283</code> vs <code>61933</code>).</p>
 </section>
 <section id="the-abba-baba-test" class="level2">
@@ -370,8 +383,8 @@ Note
 <p><span class="math display">\[
 D = \frac{n_{ABBA} - n_{BABA}}{n_{ABBA} + n_{BABA}}.
 \]</span></p>
-<p>Exercise: Above we have computed counts of the slightly simpler pattern <code>AAB</code> in their two realisations <code>002</code> and <code>220</code>. To compute the D-Statistic, we need to operate on all four individuals, where <code>ABBA</code> is realised by <code>0220</code> and <code>2002</code>, and <code>BABA</code> is realised by <code>2020</code> and <code>0202</code>. Compute the count of <code>ABBA</code> and <code>BABA</code> using the above <code>grep</code> pipeline. You should get <span class="math inline">\(n_{ABBA} = 21787\)</span> and <span class="math inline">\(n_{BABA} = 20250\)</span>.</p>
-<p>Exercise: Open an R console to compute the D-Statistic itself, using the two numbers. The number you get is a (very rough) estimate of the admixture proportion of Neanderthal ancestry in modern humans with Non-African ancestry today.</p>
+<p><strong>Task</strong>: Above we have computed counts of the slightly simpler pattern <code>AAB</code> in their two realisations <code>002</code> and <code>220</code>. To compute the D-Statistic, we need to operate on all four individuals, where <code>ABBA</code> is realised by <code>0220</code> and <code>2002</code>, and <code>BABA</code> is realised by <code>2020</code> and <code>0202</code>. Compute the count of <code>ABBA</code> and <code>BABA</code> using the above <code>grep</code> pipeline. You should get <span class="math inline">\(n_{ABBA} = 21787\)</span> and <span class="math inline">\(n_{BABA} = 20250\)</span>.</p>
+<p><strong>Task</strong>: Open an R console to compute the D-Statistic itself, using the two numbers. The number you get is a (very rough) estimate of the admixture proportion of Neanderthal ancestry in modern humans with Non-African ancestry today.</p>
 
 
 

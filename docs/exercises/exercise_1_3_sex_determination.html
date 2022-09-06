@@ -183,11 +183,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<p>Import the data</p>
+<p>Open the “Console” Tab in the lower-left pane in RStudio.</p>
+<p>Copy the following command into the console and press <code>&lt;Enter&gt;</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"data/SexDet.txt"</span>, <span class="at">col_types =</span> <span class="st">"ciiiiii"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>View it:</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On this webpage, all code-chunks have a little icon on the right which copies the content to the clipboard. You can then use Ctrl-V to copy it inside the R console.</p>
+</div>
+</div>
+<p>You can view the dataset by typing its name into the R-console:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -208,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>Interactively explore it, by clicking on “dat” in the “Environment” tab in the upper right pane in RStudio.</p>
+<p><strong>Task</strong>: Interactively explore the dataset, by clicking on “dat” in the “Environment” tab in the upper right pane in RStudio.</p>
 <p>Here is an explanation for the columns:</p>
 <ul>
 <li>Sample - The name of the sample</li>
@@ -219,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>NrX - The total number of reads mapping to the X-chromosomal positions</li>
 <li>NrY - The total number of reads mapping to the Y-chromosomal positions</li>
 </ul>
-<p>Let’s try a first simple plot. We first need to load the <code>ggplot2</code> library, and while we’re at it, we also load the <code>magrittr</code> library to have the pipe operator <code>%&gt;%</code> available for later:</p>
+<p>Let’s try a first simple plot. We first need to load the <code>ggplot2</code> library, and while we’re at it, we also load the <code>magrittr</code> library to have the pipe operator <code>%&gt;%</code> available for later. Execute the following code in the Console:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
@@ -229,8 +243,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="exercise_1_3_sex_determination_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Question: Do you have an idea why there are two lines? Exercise: Play around with this plot. For example, change the code so that you’re plotting <code>NrY</code> (and not <code>NrX</code>) against <code>NrAut</code>, and also <code>NrX</code> vs <code>NrY</code>. Do you understand what you’re seeing?</p>
-<p>Of course, the three categories, X, Y and Autosomes have vastly different sizes. In order to compare the numbers, we need to convert them to something like “average coverage”, which we achieve by normalising the read numbers by the total number of analysed positions in each category. Here is a dataset that adds this normalisation:</p>
+<p><strong>Question</strong>: Do you have an idea why there are two lines?</p>
+<p><strong>Task</strong>: You can always execute a previous command in the R console by clicking the up-arrow key. Use it to get the plotting command, and then play around with this code a bit. For example, change the code so that you’re plotting <code>NrY</code> (and not <code>NrX</code>) against <code>NrAut</code>, and also <code>NrX</code> vs <code>NrY</code>. Do you understand what you’re seeing?</p>
+<p>Of course, the three categories, X, Y and Autosomes have vastly different sizes. In order to compare the numbers, we need to convert them to something like “average coverage”, which we achieve by normalising the read numbers by the total number of analysed positions in each category. Here is a command that adds this normalisation, execute it in the console:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
@@ -239,15 +254,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">covY   =</span> NrY   <span class="sc">/</span> TotalY</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><strong>Task</strong>: View the new dataset by clicking on <code>dat2</code> in the Environment-tab in RStudio.</p>
 <p>The number of reads mapping to different chromosomes (the variables starting with <code>Nr</code>) are critically dependant on genomic coverage: The more human fragments have been sequenced, the higher the numbers in these variables.</p>
-<p>We can now again try our simple plot from above, this time using <code>dat2</code> and the <code>cov...</code> variables:</p>
+<p>We can now again try our simple plot from above, this time using <code>dat2</code> and the <code>cov...</code> variables. Execute the following:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> covAut, <span class="at">y =</span> covX))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exercise_1_3_sex_determination_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Exercise: Play again with this plot, and change the axes using <code>covAut</code>, <code>covX</code> and <code>covY</code>. Not much has changed, besides the values on the axes, which now reflect genomic coverage instead of total number of reads.</p>
+<p><strong>Task</strong>: Again use the up-arrow to play again with this plot, and change the axes by choosing two variables from <code>covAut</code>, <code>covX</code> and <code>covY</code>. Not much has changed, besides the values on the axes, which now reflect genomic coverage instead of total number of reads.</p>
 <p>There still is the problem that samples have vastly different coverages, simply due to different degrees of preservation and different sequencing depths (and some have undergone capture, some haven’t). How do we make these numbers comparable?</p>
 <p>The easiest approach is to take the autosomal coverage to normalise the X and Y coverage on.</p>
 <p>For example, here is the distribution of relative X-coverages:</p>
@@ -260,8 +276,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="exercise_1_3_sex_determination_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Exercise: Plot a second histogram with the relative Y coverage.</p>
-<p>Finally, try to copy the code from the scatter plots above and plot relative X vs.&nbsp;relative Y coverage. Can you identify the males and female samples?</p>
+<p><strong>Task</strong>: Plot a second histogram with the relative Y coverage.</p>
+<p><strong>Task</strong>: Copy the code from the scatter plots above and plot relative X vs.&nbsp;relative Y coverage. Can you identify the males and female samples?</p>
 
 
 

@@ -31,11 +31,15 @@ We typically deal with dozens to tens of thousands of individuals, and hundreds 
 - A file denoting the list of SNPs (i.e. the row names)
 - A genotype matrix, containing the actual genotype data.
 
-Let's take a look at the individual file first:
+Let's take a look at the individual file first. Type the following command into the "Terminal" in the lower-left pane in RStudio:
 
 ```{bash}
 cat data/Abba_Baba_dataset/Abba_Baba_dataset.ind
 ```
+
+::: callout-important
+All commands in this exercise are carried out in the "Terminal", not the "Console"!
+:::
 
 where you see four individuals. In each row, the first column denotes the sample name, the second column the sex, and the third column a group label, which is irrelevant for now. Here is a quick summary for the four:
 
@@ -88,7 +92,7 @@ cut -c1,3,4 data/Abba_Baba_dataset/Abba_Baba_dataset.geno | head
 ```
 
 ::: callout-note
-Piping a result of a computation into `head` is a very common trick in exploratory data analysis in the shell. It avoids a super-long output. Here, we just would like to see the first ten lines of the result to see whether it's working as expected.
+You may get a warning that says "Broken Pipe", which can safely ignore. Piping a result of a computation into `head` is a very common trick in exploratory data analysis in the shell. It avoids a super-long output. Here, we just would like to see the first ten lines of the result to see whether it's working as expected. `head` simply aborts the output after a 10 lines.
 :::
 
 OK, this looks good. Now we have to filter lines at which the two genotypes in Neanderthal and Human are similar, but different from Chimpanzee. In other words, we are looking for two possible patterns in the three individuals: `002` or `220`. We use the command `grep`, and then count the lines, using `wc`:
@@ -96,7 +100,7 @@ OK, this looks good. Now we have to filter lines at which the two genotypes in N
 cut -c1,3,4 data/Abba_Baba_dataset/Abba_Baba_dataset.geno | grep -e 002 -e 220 | wc -l
 ```
 
-Exercise: Repeat the same exercise for the Nigerian individual (which is in column 2 instead of column 1 of the genotype file). You should get `61933`.
+**Task**: Repeat the same exercise for the Nigerian individual (which is in column 2 instead of column 1 of the genotype file). You should get `61933`.
 
 Comparing the two numbers, we see that the US individual shares around 3000 more variants with the Croatian Neanderthal than the Nigerian individual does (`65283` vs `61933`).
 
@@ -120,8 +124,8 @@ $$
 D = \frac{n_{ABBA} - n_{BABA}}{n_{ABBA} + n_{BABA}}.
 $$
 
-Exercise: Above we have computed counts of the slightly simpler pattern `AAB` in their two realisations `002` and `220`. To compute the D-Statistic, we need to operate on all four individuals, where `ABBA` is realised by `0220` and `2002`, and `BABA` is realised by `2020` and `0202`. Compute the count of `ABBA` and `BABA` using the above `grep` pipeline. You should get $n_{ABBA} = 21787$ and $n_{BABA} = 20250$.
+**Task**: Above we have computed counts of the slightly simpler pattern `AAB` in their two realisations `002` and `220`. To compute the D-Statistic, we need to operate on all four individuals, where `ABBA` is realised by `0220` and `2002`, and `BABA` is realised by `2020` and `0202`. Compute the count of `ABBA` and `BABA` using the above `grep` pipeline. You should get $n_{ABBA} = 21787$ and $n_{BABA} = 20250$.
 
-Exercise: Open an R console to compute the D-Statistic itself, using the two numbers. The number you get is a (very rough) estimate of the admixture proportion of Neanderthal ancestry in modern humans with Non-African ancestry today.
+**Task**: Open an R console to compute the D-Statistic itself, using the two numbers. The number you get is a (very rough) estimate of the admixture proportion of Neanderthal ancestry in modern humans with Non-African ancestry today.
 
 

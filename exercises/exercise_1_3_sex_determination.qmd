@@ -6,18 +6,24 @@ title: "Exercise 1.3: Sex determination"
 knitr::opts_knit$set(root.dir = "../")
 ```
 
-Import the data
+Open the "Console" Tab in the lower-left pane in RStudio.
+
+Copy the following command into the console and press `<Enter>`
 
 ```{r}
 dat <- readr::read_tsv("data/SexDet.txt", col_types = "ciiiiii")
 ```
 
-View it:
+::: callout-tip
+On this webpage, all code-chunks have a little icon on the right which copies the content to the clipboard. You can then use Ctrl-V to copy it inside the R console.
+:::
+
+You can view the dataset by typing its name into the R-console:
 ```{r}
 dat
 ```
 
-Interactively explore it, by clicking on "dat" in the "Environment" tab in the upper right pane in RStudio.
+**Task**: Interactively explore the dataset, by clicking on "dat" in the "Environment" tab in the upper right pane in RStudio.
 
 Here is an explanation for the columns:
 
@@ -29,7 +35,7 @@ Here is an explanation for the columns:
 - NrX - The total number of reads mapping to the X-chromosomal positions
 - NrY - The total number of reads mapping to the Y-chromosomal positions
 
-Let's try a first simple plot. We first need to load the `ggplot2` library, and while we're at it, we also load the `magrittr` library to have the pipe operator `%>%` available for later:
+Let's try a first simple plot. We first need to load the `ggplot2` library, and while we're at it, we also load the `magrittr` library to have the pipe operator `%>%` available for later. Execute the following code in the Console:
 
 ```{r}
 library(ggplot2)
@@ -38,10 +44,11 @@ library(magrittr)
 ggplot(dat) + geom_point(aes(x = NrAut, y = NrX))
 ```
 
-Question: Do you have an idea why there are two lines?
-Exercise: Play around with this plot. For example, change the code so that you're plotting `NrY` (and not `NrX`) against `NrAut`, and also `NrX` vs `NrY`. Do you understand what you're seeing?
+**Question**: Do you have an idea why there are two lines?
 
-Of course, the three categories, X, Y and Autosomes have vastly different sizes. In order to compare the numbers, we need to convert them to something like "average coverage", which we achieve by normalising the read numbers by the total number of analysed positions in each category. Here is a dataset that adds this normalisation:
+**Task**: You can always execute a previous command in the R console by clicking the up-arrow key. Use it to get the plotting command, and then play around with this code a bit. For example, change the code so that you're plotting `NrY` (and not `NrX`) against `NrAut`, and also `NrX` vs `NrY`. Do you understand what you're seeing?
+
+Of course, the three categories, X, Y and Autosomes have vastly different sizes. In order to compare the numbers, we need to convert them to something like "average coverage", which we achieve by normalising the read numbers by the total number of analysed positions in each category. Here is a command that adds this normalisation, execute it in the console:
 
 ```{r}
 dat2 <- dat %>%
@@ -52,15 +59,17 @@ dat2 <- dat %>%
   )
 ```
 
+**Task**: View the new dataset by clicking on `dat2` in the Environment-tab in RStudio.
+
 The number of reads mapping to different chromosomes (the variables starting with `Nr`) are critically dependant on genomic coverage: The more human fragments have been sequenced, the higher the numbers in these variables. 
 
-We can now again try our simple plot from above, this time using `dat2` and the `cov...` variables:
+We can now again try our simple plot from above, this time using `dat2` and the `cov...` variables. Execute the following:
 
 ```{r}
 ggplot(dat2) + geom_point(aes(x = covAut, y = covX))
 ```
 
-Exercise: Play again with this plot, and change the axes using `covAut`, `covX` and `covY`. Not much has changed, besides the values on the axes, which now reflect genomic coverage instead of total number of reads.
+**Task**: Again use the up-arrow to play again with this plot, and change the axes by choosing two variables from `covAut`, `covX` and `covY`. Not much has changed, besides the values on the axes, which now reflect genomic coverage instead of total number of reads.
 
 There still is the problem that samples have vastly different coverages, simply due to different degrees of preservation and different sequencing depths (and some have undergone capture, some haven't). How do we make these numbers comparable?
 
@@ -72,9 +81,9 @@ For example, here is the distribution of relative X-coverages:
 ggplot(dat2) + geom_histogram(aes(x = covX / covAut))
 ```
 
-Exercise: Plot a second histogram with the relative Y coverage.
+**Task**: Plot a second histogram with the relative Y coverage.
 
-Finally, try to copy the code from the scatter plots above and plot relative X vs. relative Y coverage. Can you identify the males and female samples?
+**Task**: Copy the code from the scatter plots above and plot relative X vs. relative Y coverage. Can you identify the males and female samples?
 
 
 
