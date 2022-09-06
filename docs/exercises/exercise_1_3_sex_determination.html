@@ -183,25 +183,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<p>Open the “Console” Tab in the lower-left pane in RStudio.</p>
-<p>Copy the following command into the console and press <code>&lt;Enter&gt;</code></p>
+<p>In the following exercise, we are executing R commands. You can do one of two things to run them yourself:</p>
+<ol type="1">
+<li>Copy each command (for example using the little copy-icon on the right in each code-chunk) and paste them into the R console (the “Console” tab in the lower left pane on RStudio), then press <code>&lt;Enter&gt;</code>.</li>
+<li>Open this exercise in RStudio, by going to the “Files” tab in the lower right in RStudio, clicking on <code>exercises</code> and then on <code>exercise_1_3_sex_determination.qmd</code>. You should then see little green arrows beside each code-chunk. Click on them, and they are automatically executed in the Console.</li>
+</ol>
+<p>Let’s start by loading a data table into memory:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"data/SexDet.txt"</span>, <span class="at">col_types =</span> <span class="st">"ciiiiii"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>On this webpage, all code-chunks have a little icon on the right which copies the content to the clipboard. You can then use Ctrl-V to copy it inside the R console.</p>
-</div>
-</div>
-<p>You can view the dataset by typing its name into the R-console:</p>
+<p>Let’s view the dataset by simply typing its name:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
